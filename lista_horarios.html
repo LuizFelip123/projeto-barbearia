@@ -25,6 +25,16 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <!--datepicker-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <link href="assets/css/bootstrap-datepicker.css" rel="stylesheet"/>
+    <script src="assets/js/bootstrap-datepicker.min.js"></script> 
+    <script src="assets/js/bootstrap-datepicker.pt-BR.min.js" charset="UTF-8"></script>
+
+  <!--./datepicker-->
 
   
 </head>
@@ -182,87 +192,61 @@
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-black ">
-              <div class="inner">
-                <h3>7:30</h3>
-
-                <p> 12/08/2023</p>
+    <!-- Calendário 
+    <div class="container">
+      <h1>Cadastar Data</h1>
+      <form class="form-horizontal">
+         <div class="form-group">
+          <label class="col-sm-2 control-label">Data</label>
+          <div class="col-sm-10">
+            <div class="input-group date">
+              <input type="text" class="form-control" id="exemplo" >
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
               </div>
-              <div class="icon">
-                <i class="ion ion-calendar text-white"></i>
-              </div>
-              <a href="#" class="small-box-footer">Agendar  <i class="fas fa-arrow-circle-right"></i></a>
             </div>
+
           </div>
-          <!-- ./col -->
-
-          <!--col-->
-
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-black ">
-              <div class="inner">
-                <h3>8:15</h3>
-
-                <p> 12/08/2023</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-calendar text-white"></i>
-              </div>
-              <a href="#" class="small-box-footer">Agendar  <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
           </div>
-          <!-- ./col -->
 
-
-          <!--col-->
-
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-black ">
-              <div class="inner">
-                <h3>13:45</h3>
-
-                <p> 12/08/2023</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-calendar text-white"></i>
-              </div>
-              <a href="#" class="small-box-footer">Agendar  <i id="r"class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-
-
-          <!--col-->
-
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-black ">
-              <div class="inner">
-                <h3>15:30</h3>
-
-                <p> 12/08/2023</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-calendar text-white"></i>
-              </div>
-              <a href="#" class="small-box-footer" >Agendar <i  class='fas fa-arrow-circle-right'></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
           
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+          </div>
+        </div>
+      </form>
+
+
+    </div>
+    
+    <script type="text/javascript">
+      $('#exemplo').datepicker({  
+        format: "dd/mm/yyyy", 
+        language: "pt-BR",
+        startDate: '+0d'
+
+      });
+    </script>
+    
+    <-- /calendario-->
+      <div id="datepicker"></div>
+       <input type="hidden" id="my_hidden_input">
+       
+       <script type="text/javascript">
+         $('#datepicker').datepicker(
+          {format: "dd/mm/yyyy", 
+           language: "pt-BR",
+            startDate: '+0d'});
+          $('#datepicker').on('changeDate', function() {
+           $('#my_hidden_input').val(
+           $('#datepicker').datepicker('getFormattedDate')
+          );
+            });
+         let data =  document.getElementById('my_hidden_input').value
+         console.log(data)
+       </script>
+  
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="#">System skill</a>.</strong>
