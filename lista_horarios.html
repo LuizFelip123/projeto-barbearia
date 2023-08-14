@@ -25,14 +25,11 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-  <!--datepicker-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-    <link href="assets/css/bootstrap-datepicker.css" rel="stylesheet"/>
-    <script src="assets/js/bootstrap-datepicker.min.js"></script> 
-    <script src="assets/js/bootstrap-datepicker.pt-BR.min.js" charset="UTF-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="assets/css/bootstrap-datepicker.css" rel="stylesheet"/>
+  <script src="assets/js/bootstrap-datepicker.min.js"></script> 
+  <script src="assets/js/bootstrap-datepicker.pt-BR.min.js" charset="UTF-8"></script>
 
   <!--./datepicker-->
 
@@ -142,7 +139,7 @@
 
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="lista_clientes.html" class="nav-link">
               <i class="nav-icon fas fa-table text-white"></i>
               <p class="text-white" >
                 Listar clientes
@@ -151,8 +148,8 @@
            
           </li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link active">
-              <i class="nav-icon  far fa-calendar-alt text-white"></i>
+            <a href="lista_horarios.html" class="nav-link active">
+              <i class="nav-icon far fa-calendar-alt text-white"></i>
               <p class="text-white " >
                 Listar Horários
                 <span class="badge badge-info right">2</span>
@@ -184,44 +181,171 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-          
+            <h1 class="m-0">Faça um agendamento</h1>
           </div><!-- /.col -->
        
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
+   
     <!-- Calendário -->
     <div class="container">
-      <h1>Faça um agendamento</h1>
       <form class="form-horizontal">
          <div class="form-group">
           <label class="col-sm-2 control-label">Data</label>
           <div class="col-sm-10">
             <div class="input-group date">
-              <input type="text" class="col-sm-2"autofocus class="form-control" id="exemplo" >
-              <div class="input-group-addon">
-              
-              </div>
+              <input type="text" class="col-sm-3 " class="form-control" id="calendario" value="  ">
+              <button class="btn btn-outline-primary " data-toggle="modal" data-target="#modal-horarios" type="button">horários disponíveis nesta data</button>
             </div>
 
           </div>
           </div>
-
-          
+    
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-success">Cadastrar</button>
+          
           </div>
         </div>
       </form>
-
-
     </div>
+    <!-- ./calendário-->
+
+    <!--horários disponivéis este mês-->
+        <!-- /.row -->
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">horarios disponíveis este mês</h3>
+
+                    <div class="card-tools">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body table-responsive p-0" style="height: 300px;">
+                    <table class="table table-head-fixed text-nowrap">
+                      <thead>
+                        <tr>
+                          <th>Data</th>
+                          <th>Hora</th>
+                        
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>14/08/2023</td>
+                          <td>9:30, 10:30, 8:15</td>
+                          <th><button class="btn btn-outline-primary">reservar</button></th>
+                         
+                        </tr>
+                        <tr>
+                          <td>219</td>
+                          <td>Alexander Pierce</td>
+                         <th><button class="btn btn-outline-primary">reservar</button></th>
+                          
+                        </tr>
+                        <tr>
+                          <td>657</td>
+                          <td>Bob Doe</td>
+                          <th><button class="btn btn-outline-primary">reservar</button></th>
+                          
+                        </tr>
+                        <tr>
+                          <td>175</td>
+                          <td>Mike Doe</td>
+                          <th><button class="btn btn-outline-primary">reservar</button></th>
+                          
+                        </tr>
+                        <tr>
+                          <td>134</td>
+                          <td>Jim Doe</td>
+                          <th><button class="btn btn-outline-primary">reservar</button></th>
+                          
+                        </tr>
+                        <tr>
+                          <td>494</td>
+                          <td>Victoria Doe</td>
+                          <th><button class="btn btn-outline-primary">reservar</button></th>
+                          
+                        </tr>
+                        <tr>
+                          <td>832</td>
+                          <td>Michael Doe</td>
+                         <th><button class="btn btn-outline-primary">reservar</button></th>
+                         
+                        </tr>
+                        <tr>
+                          <td>982</td>
+                          <td>Rocky Doe</td>
+                          <th><button class="btn btn-outline-primary">reservar</button></th>
+                          
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+    <!--./horários disponivéis este mês-->
+
+   
+    <!--modal-->
+      <div class="modal fade" id="modal-horarios">
+        <div class="modal-dialog">
+          <div class="modal-content bg-secondary">
+            <div class="modal-header">
+              <h4 class="modal-title">Horarios disponíveis</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+              <!--horarios-->
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">7:30</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">9:45</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
+                <label class="form-check-label" for="inlineRadio3">10:30 </label>
+              </div>
+
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
+                <label class="form-check-label" for="inlineRadio3">15:20</label>
+              </div>
+
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
+                <label class="form-check-label" for="inlineRadio3">16:15</label>
+              </div>
+              <!--./horarios-->
+
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-outline-light">Salvar</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    <!--./modal-->
     
     <script type="text/javascript">
-      $('#exemplo').datepicker({  
+      $('#calendario').datepicker({  
         format: "dd/mm/yyyy", 
         language: "pt-BR",
         startDate: '+0d'
