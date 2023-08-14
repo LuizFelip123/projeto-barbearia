@@ -184,7 +184,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Horários disponíveis hoje</h1>
+          
           </div><!-- /.col -->
        
         </div><!-- /.row -->
@@ -192,17 +192,17 @@
     </div>
     <!-- /.content-header -->
 
-    <!-- Calendário 
+    <!-- Calendário -->
     <div class="container">
-      <h1>Cadastar Data</h1>
+      <h1>Faça um agendamento</h1>
       <form class="form-horizontal">
          <div class="form-group">
           <label class="col-sm-2 control-label">Data</label>
           <div class="col-sm-10">
             <div class="input-group date">
-              <input type="text" class="form-control" id="exemplo" >
+              <input type="text" class="col-sm-2"autofocus class="form-control" id="exemplo" >
               <div class="input-group-addon">
-                <span class="glyphicon glyphicon-th"></span>
+              
               </div>
             </div>
 
@@ -229,23 +229,7 @@
       });
     </script>
     
-    <-- /calendario-->
-      <div id="datepicker"></div>
-       <input type="hidden" id="my_hidden_input">
-       
-       <script type="text/javascript">
-         $('#datepicker').datepicker(
-          {format: "dd/mm/yyyy", 
-           language: "pt-BR",
-            startDate: '+0d'});
-          $('#datepicker').on('changeDate', function() {
-           $('#my_hidden_input').val(
-           $('#datepicker').datepicker('getFormattedDate')
-          );
-            });
-         let data =  document.getElementById('my_hidden_input').value
-         console.log(data)
-       </script>
+    
   
   <!-- /.content-wrapper -->
   <footer class="main-footer">
