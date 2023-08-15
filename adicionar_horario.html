@@ -25,15 +25,17 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="assets/css/bootstrap-datepicker.css" rel="stylesheet"/>
   <script src="assets/js/bootstrap-datepicker.min.js"></script> 
   <script src="assets/js/bootstrap-datepicker.pt-BR.min.js" charset="UTF-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
   <!--./datepicker-->
-
-  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -119,7 +121,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open ">
-            <a href="index.html" class="nav-link ">
+            <a href="index.html" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt text-white"></i>
               <p class="text-white" >
                 Home
@@ -130,7 +132,7 @@
 
         
           <li class="nav-item">
-            <a href="adicionar_horario.html" class="nav-link">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-edit text-white"></i>
               <p class="text-white">
                 Adicionar Horário
@@ -148,7 +150,7 @@
            
           </li>
           <li class="nav-item">
-            <a href="lista_horarios.html" class="nav-link active">
+            <a href="lista_horarios.html" class="nav-link">
               <i class="nav-icon far fa-calendar-alt text-white"></i>
               <p class="text-white " >
                 Listar Horários
@@ -177,185 +179,194 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Faça um agendamento</h1>
-          </div><!-- /.col -->
-       
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-   
-    <!-- Calendário -->
-    <div class="container">
-      <form class="form-horizontal">
-         <div class="form-group">
-          <label class="col-sm-2 control-label">Data</label>
-          <div class="col-sm-10">
-            <div class="input-group date">
-              <input type="text" class="col-sm-3 " class="form-control" id="calendario" value="  ">
-              <button class="btn btn-outline-primary " data-toggle="modal" data-target="#modal-horarios" type="button">horários disponíveis nesta data</button>
-            </div>
 
-          </div>
-          </div>
-    
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-          
-          </div>
-        </div>
-      </form>
-    </div>
-    <!-- ./calendário-->
-
-    <!--horários disponivéis este mês-->
-        <!-- /.row -->
-            <div class="row">
-              <div class="col-12">
-                <div class="card">
+          <!--row-->
+          <div class="row">
+            <!-- /.col (left) -->
+          <div class="col-md-6">
+                <div class="card card-info">
                   <div class="card-header">
-                    <h3 class="card-title">horarios disponíveis este mês</h3>
+                    <h3 class="card-title">Adicione um horário</h3>
+                  </div>
+                  <div class="card-body">
+                 
+                    <!-- Date range -->
+                    <div class="form-group">
+                      <label for="reservation">Data </label>
 
-                    <div class="card-tools">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="far fa-calendar-alt" for="reservation"></i>
+                          </span>
+                        </div>
+                        <input type="text" name="data" class="form-control float-right" id="reservation">
+                      </div>
+                      <!-- /.input group -->
+                    </div>
+                    <!-- /.form group -->
+
+                    <!-- Date and time range -->
+                    <div class="form-group">
+                      <label for="reservationtime">Hora</label>
+
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" ><i class="far fa-clock" for="reservationtime"></i></span>
+                        </div>
+                        <input type="text" class="form-control float-right" id="reservationtime">
+                      </div>
+                      <!-- /.input group -->
+                    </div>
+                    <!-- /.form group -->
+
+                    <!-- Date and time range -->
+                    <div class="form-group">
+                      <div class="input-group">
+                        <button class="btn btn-info ">Adicionar hórario
+                          <i class="nav-icon fas fa-edit text-white"></i>
+                        </button>
                       </div>
                     </div>
+                  
                   </div>
-                  <!-- /.card-header -->
-                  <div class="card-body table-responsive p-0" style="height: 300px;">
-                    <table class="table table-head-fixed text-nowrap">
-                      <thead>
-                        <tr>
-                          <th>Data</th>
-                          <th>Hora</th>
-                          <th>Ação</th>
-                        
-                          
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>14/08/2023</td>
-                          <td>9:30, 10:30, 8:15</td>
-                          <th><button class="btn btn-outline-primary">reservar</button></th>
-                         
-                        </tr>
-                        <tr>
-                          <td>219</td>
-                          <td>Alexander Pierce</td>
-                         <th><button class="btn btn-outline-primary">reservar</button></th>
-                          
-                        </tr>
-                        <tr>
-                          <td>657</td>
-                          <td>Bob Doe</td>
-                          <th><button class="btn btn-outline-primary">reservar</button></th>
-                          
-                        </tr>
-                        <tr>
-                          <td>175</td>
-                          <td>Mike Doe</td>
-                          <th><button class="btn btn-outline-primary">reservar</button></th>
-                          
-                        </tr>
-                        <tr>
-                          <td>134</td>
-                          <td>Jim Doe</td>
-                          <th><button class="btn btn-outline-primary">reservar</button></th>
-                          
-                        </tr>
-                        <tr>
-                          <td>494</td>
-                          <td>Victoria Doe</td>
-                          <th><button class="btn btn-outline-primary">reservar</button></th>
-                          
-                        </tr>
-                        <tr>
-                          <td>832</td>
-                          <td>Michael Doe</td>
-                         <th><button class="btn btn-outline-primary">reservar</button></th>
-                         
-                        </tr>
-                        <tr>
-                          <td>982</td>
-                          <td>Rocky Doe</td>
-                          <th><button class="btn btn-outline-primary">reservar</button></th>
-                          
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <!-- /.card-body -->
+            </div>
+          </div><!--./col-->
+          
+
+            <!--col-->
+            <div class="col-sm-6">
+                  <div class="card card-info">
+                  <div class="card-header">
+                    <h3 class="card-title">Horários de hoje</h3>
+
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
                 </div>
-                <!-- /.card -->
+                <div class="card-body p-0">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Hórario</th>
+                        
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
 
-    <!--./horários disponivéis este mês-->
+                      <tr>
+                        <td>7:30</td>
+                        
+                        <td class="text-right py-0 align-middle">
+                          <div class="btn-group btn-group-sm">
+                            
+                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          </div>
+                        </td>
+                      <tr>
+                        <td>8:45</td>
+                        
+                        <td class="text-right py-0 align-middle">
+                          <div class="btn-group btn-group-sm">
+                            
+                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          </div>
+                        </td>
+                      <tr>
+                        <td>9:15</td>
+                        
+                        <td class="text-right py-0 align-middle">
+                          <div class="btn-group btn-group-sm">
+                            
+                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          </div>
+                        </td>
+                      <tr>
+                        <td>9:50</td>
+                        
+                        <td class="text-right py-0 align-middle">
+                          <div class="btn-group btn-group-sm">
+                            
+                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          </div>
+                        </td>
+                      <tr>
+                        <td>10:40</td>
+                        
+                        <td class="text-right py-0 align-middle">
+                          <div class="btn-group btn-group-sm">
+                          
+                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          </div>
+                        </td>
 
-   
-    <!--modal-->
-      <div class="modal fade" id="modal-horarios">
-        <div class="modal-dialog">
-          <div class="modal-content bg-info">
-            <div class="modal-header">
-              <h4 class="modal-title">Horarios disponíveis</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
+                    </tbody>
+                  </table>
+                </div>
               
-              <!--horarios-->
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">7:30</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">9:45</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
-                <label class="form-check-label" for="inlineRadio3">10:30 </label>
-              </div>
+            </div><!--./col-->
+            
+          </div><!--./row-->
+    
+          
 
-               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
-                <label class="form-check-label" for="inlineRadio3">15:20</label>
-              </div>
+            
+            <!-- /.card-body -->
+          
+          <!-- /.card -->
 
-               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
-                <label class="form-check-label" for="inlineRadio3">16:15</label>
+            <!-- Bootstrap Switch -->
+            <div class="card card-info col-sm-12">
+              <div class="card-header">
+                <h3 class="card-title">Repitir</h3>
               </div>
-              <!--./horarios-->
+              <div class="card-body">
+                <div class="row justify-content-center">
+                   <label for="seg" class="col-sm-1">Seg</label>
+                   <label for="ter" class="col-sm-1">Ter</label>
+                   <label for="qua" class="col-sm-1">Qua</label>
+                   <label for="qui" class="col-sm-1">Qui</label>
+                   <label for="sex" class="col-sm-1">Sex</label>
+                   <label for="sab" class="col-sm-1">Sab</label>
+                   <label for="dom" class="col-sm-1">Dom</label>
+                </div>
 
+
+                <div class="row justify-content-center">
+                  <input type="checkbox" class="col-sm-1" name="seg"  id="seg" data-bootstrap-switch>
+
+                  <input type="checkbox" class="col-sm-1" name="ter"  id="ter" data-bootstrap-switch>
+
+                 
+                  <input type="checkbox" class="col-sm-1" name="qua"  id="qua" data-bootstrap-switch>
+
+                 
+                  <input type="checkbox" class="col-sm-1" name="qui"  id="qui" data-bootstrap-switch>
+
+                 
+                  <input type="checkbox" class="col-sm-1" name="sex"  id="sex" data-bootstrap-switch>
+
+                
+                  <input type="checkbox" class="col-sm-1" name="sab"  id="sab" data-bootstrap-switch>
+
+                 
+                  <input type="checkbox" class="col-sm-1" name="dom"  id="dom" data-bootstrap-switch>
+                   
+                </div>
+               
+               
+                 
+                
+
+                
+              </div>
             </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Fechar</button>
-              <button type="button" class="btn btn-outline-light">Salvar</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-    <!--./modal-->
-    
-    <script type="text/javascript">
-      $('#calendario').datepicker({  
-        format: "dd/mm/yyyy", 
-        language: "pt-BR",
-        startDate: '+0d'
-
-      });
-    </script>
-    
-    
-  
+           
+          
+  </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="#">System skill</a>.</strong>
@@ -372,6 +383,27 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+<!--date picker-->
+<script type="text/javascript">
+      $('#reservation').datepicker({  
+        format: "dd/mm/yyyy", 
+        language: "pt-BR",
+        startDate: '+0d'
+
+      });
+
+     flatpickr("#reservationtime", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+        });
+
+      
+
+      
+</script>
+
+
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
