@@ -52,7 +52,7 @@
               </form>
             </div>
             <!-- /.card -->
-            <span class="row justify-content-center">Não possui uma conta? <a href="cadastro.html" class="ml-2">crie uma</a></span>
+            <span class="row justify-content-center">Não possui uma conta? <a href="/registro" class="ml-2">crie uma</a></span>
         
       </div>
     
