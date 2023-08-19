@@ -267,6 +267,16 @@
       <!-- /.modal -->
     <!--./modal-->
     
+    <script>
+      function setActiveClass() {
+      var homeElement = document.getElementById('listHorario');
+      if (homeElement) {
+        homeElement.classList.add("active");
+       }
+     }
+    setActiveClass();
+    
+    </script>
     <script type="text/javascript">
       $('#calendario').datepicker({  
         format: "dd/mm/yyyy", 
