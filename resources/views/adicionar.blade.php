@@ -145,9 +145,11 @@
                     <!-- /.form group -->
 
                     <!-- Date and time range -->
+
+
                     <div class="form-group">
                       <div class="input-group">
-                        <button class="btn btn-info ">Adicionar hórario
+                        <button class="btn btn-info">Adicionar hórario
                           <i class="nav-icon fas fa-edit text-white"></i>
                         </button>
                       </div>
@@ -249,38 +251,58 @@
               </div>
               <div class="card-body">
                 <div class="row justify-content-center">
-                   <label for="seg" class="col-sm-1">Seg</label>
-                   <label for="ter" class="col-sm-1">Ter</label>
-                   <label for="qua" class="col-sm-1">Qua</label>
-                   <label for="qui" class="col-sm-1">Qui</label>
-                   <label for="sex" class="col-sm-1">Sex</label>
-                   <label for="sab" class="col-sm-1">Sab</label>
-                   <label for="dom" class="col-sm-1">Dom</label>
+                   <label for="seg"  class="ml-2">Seg
+                    <input type="checkbox" name="seg"  id="seg" class="ml-2" data-bootstrap-switch>
+
+                   </label>
+                   <label for="ter" class="ml-2" >Ter
+                    <input type="checkbox"  name="ter" class="ml-2" id="ter" data-bootstrap-switch>
+
+                   </label>
+                   <label for="qua" class="ml-2">Qua
+                    <input type="checkbox"  name="qua" class="ml-2" id="qua" data-bootstrap-switch>
+
+                   </label>
+                   <label for="qui" class="ml-2">Qui
+                    <input type="checkbox" name="qui"  id="qui" class="ml-2" data-bootstrap-switch>
+
+                   </label>
+                   <label for="sex" class="ml-2">Sex
+                    <input type="checkbox"  name="sex"  id="sex" class="ml-2" data-bootstrap-switch>
+
+
+                   </label>
+                   <label for="sab" class="ml-2">Sab
+                    <input type="checkbox"  name="sab"  class="ml-2" id="sab" data-bootstrap-switch>
+
+
+                   </label>
+                   <label for="dom" class="ml-2">Dom
+                     <input type="checkbox" class="ml-2" name="dom"  id="dom" data-bootstrap-switch>
+
+                   </label>
                 </div>
 
-
-                <div class="row justify-content-center">
-                  <input type="checkbox" class="col-sm-1" name="seg"  id="seg" data-bootstrap-switch>
-
-                  <input type="checkbox" class="col-sm-1" name="ter"  id="ter" data-bootstrap-switch>
-
-                 
-                  <input type="checkbox" class="col-sm-1" name="qua"  id="qua" data-bootstrap-switch>
-
-                 
-                  <input type="checkbox" class="col-sm-1" name="qui"  id="qui" data-bootstrap-switch>
-
-                 
-                  <input type="checkbox" class="col-sm-1" name="sex"  id="sex" data-bootstrap-switch>
 
                 
-                  <input type="checkbox" class="col-sm-1" name="sab"  id="sab" data-bootstrap-switch>
+                  
+
+                  
 
                  
-                  <input type="checkbox" class="col-sm-1" name="dom"  id="dom" data-bootstrap-switch>
+                  
+
+                 
+                  
+
+                 
+                  
+                
+                  
+                 
+                 
                    
-                </div>
-               
+                
                
                  
                 
