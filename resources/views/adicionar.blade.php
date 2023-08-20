@@ -308,6 +308,15 @@
 </div>
 <!-- ./wrapper -->
 <!--date picker-->
+<script>
+  function setActiveClass() {
+var homeElement = document.getElementById('addHorario');
+if (homeElement) {
+homeElement.classList.add("active");
+}
+}
+setActiveClass();
+</script>
 <script type="text/javascript">
       $('#reservation').datepicker({  
         format: "dd/mm/yyyy", 
@@ -334,6 +343,7 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>

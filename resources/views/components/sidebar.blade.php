@@ -24,7 +24,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open ">
-            <a href="#" class="nav-link active">
+            <a href="/" id="home" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt text-white"></i>
               <p class="text-white" >
                 Home
@@ -35,7 +35,7 @@
 
         
           <li class="nav-item">
-            <a href="/adicionar" class="nav-link">
+            <a href="/adicionar" id="addHorario" class="nav-link">
               <i class="nav-icon fas fa-edit text-white"></i>
               <p class="text-white">
                 Adicionar Horário
@@ -44,7 +44,7 @@
 
           </li>
           <li class="nav-item">
-            <a href="/clientes" class="nav-link">
+            <a href="/clientes" id="listCliente" class="nav-link">
               <i class="nav-icon fas fa-table text-white"></i>
               <p class="text-white" >
                 Listar clientes
@@ -53,7 +53,7 @@
            
           </li>
           <li class="nav-item">
-            <a href="/horario" class="nav-link">
+            <a href="/horario" id="listHorario" class="nav-link">
               <i class="nav-icon far fa-calendar-alt text-white"></i>
               <p class="text-white " >
                 Listar Horários
@@ -62,7 +62,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/login" class="nav-link">
+            <a href="/login" id="sair" class="nav-link">
               <i class="nav-icon fas  fa-sign-out-alt text-white"></i>
               <p class="text-white">
                 Sair

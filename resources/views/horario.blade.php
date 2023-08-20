@@ -301,6 +301,16 @@
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
+  function setActiveClass() {
+  var homeElement = document.getElementById('listHorario');
+  if (homeElement) {
+    homeElement.classList.add("active");
+   }
+ }
+setActiveClass();
+
+</script>
+<script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
