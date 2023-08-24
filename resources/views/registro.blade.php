@@ -25,7 +25,7 @@
                   <div class="form-group row justify-content-center">
                     <label for="inputPassword3" class="col-sm-4 col-form-label justify-content-center row">Nome</label>
                     <div class="col-md-10">
-                      <input type="password" name="nome" class="form-control" id="inputPassword3" placeholder="Nome completo...">
+                      <input type="text" name="nome" class="form-control" id="inputPassword3" placeholder="Nome completo...">
                     </div>
                   </div>
 
@@ -33,7 +33,7 @@
                   <div class="form-group row justify-content-center">
                     <label for="inputPassword3" class="col-sm-4 col-form-label justify-content-center row">Telefone</label>
                     <div class="col-md-10">
-                      <input type="password" name="telefone" class="form-control" id="inputPassword3" placeholder="telefone">
+                      <input type="text" name="telefone" class="form-control" id="inputPassword3" placeholder="telefone">
                     </div>
                   </div>
 
