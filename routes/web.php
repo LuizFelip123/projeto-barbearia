@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,20 +23,14 @@ Route::get('/registro', function () {
     return view('registro');
 });
 
-
-Route::get('/horario', function () {
-    return view('horario');
-});
-Route::get('/clientes', function () {
-    return view('clientes');
-});
+Route::post('/salvar', [AgendaController::class, 'store']);
+Route::get('/horario',[DataController::class, 'index'] );
+Route::get('/clientes', [UserController::class, 'index']);
 Route::get('/listar', function () {
     return view('listar');
 });
 
-Route::get('/adicionar', function () {
-    return view('adicionar');
-});
+Route::get('/adicionar',[AgendaController::class, 'index']);
 
 Route::get('/login', function () {
     return view('login');

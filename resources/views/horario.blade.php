@@ -159,54 +159,18 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>14/08/2023</td>
-                          <td>9:30, 10:30, 8:15</td>
-                          <th><button class="btn btn-outline-primary">reservar</button></th>
-                         
-                        </tr>
-                        <tr>
-                          <td>219</td>
-                          <td>Alexander Pierce</td>
-                         <th><button class="btn btn-outline-primary">reservar</button></th>
-                          
-                        </tr>
-                        <tr>
-                          <td>657</td>
-                          <td>Bob Doe</td>
-                          <th><button class="btn btn-outline-primary">reservar</button></th>
-                          
-                        </tr>
-                        <tr>
-                          <td>175</td>
-                          <td>Mike Doe</td>
-                          <th><button class="btn btn-outline-primary">reservar</button></th>
-                          
-                        </tr>
-                        <tr>
-                          <td>134</td>
-                          <td>Jim Doe</td>
-                          <th><button class="btn btn-outline-primary">reservar</button></th>
-                          
-                        </tr>
-                        <tr>
-                          <td>494</td>
-                          <td>Victoria Doe</td>
-                          <th><button class="btn btn-outline-primary">reservar</button></th>
-                          
-                        </tr>
-                        <tr>
-                          <td>832</td>
-                          <td>Michael Doe</td>
-                         <th><button class="btn btn-outline-primary">reservar</button></th>
-                         
-                        </tr>
-                        <tr>
-                          <td>982</td>
-                          <td>Rocky Doe</td>
-                          <th><button class="btn btn-outline-primary">reservar</button></th>
-                          
-                        </tr>
+                      @foreach ($datas as $data)
+                      <tr>
+                        <td>{{date('d/m/Y', strtotime($data->data))}}</td>
+                        <td>@foreach ($data->horarios as $item)
+                          <span>{{ substr($item->hora, 0, 5); }}  |  </span>
+                        @endforeach</td>
+                        <th><button class="btn btn-outline-primary">reservar</button></th>
+                       
+                      </tr>
+           
+                      @endforeach
+                    
                       </tbody>
                     </table>
                   </div>

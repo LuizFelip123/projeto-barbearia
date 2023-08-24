@@ -158,6 +158,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($clientes as $cliente)
                     <tr>
                         <td>
                             João
@@ -190,175 +191,13 @@
                             
                         </td>
                     </tr>
-                    
-                    <tr>
-                        <td>
-                            João
-                        </td>
-                        <td>
-                            <a>
-                                8:45
-                            </a>
-                            <br/>
-                            <small>
-                                23/08/2023
-                            </small>
-                        </td>
-  
-                        <td>
-                            João@gmail.com
-                        </td>
-  
-                        <td>
-                            75 998721344
-                        </td>
-                        
-                        
-                        <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Reagendar
-                            </a>
-                            
-                        </td>
-                    </tr>
-  
-                    <tr>
-                        <td>
-                            João
-                        </td>
-                        <td>
-                            <a>
-                                8:45
-                            </a>
-                            <br/>
-                            <small>
-                                23/08/2023
-                            </small>
-                        </td>
-  
-                        <td>
-                            João@gmail.com
-                        </td>
-  
-                        <td>
-                            75 998721344
-                        </td>
-                        
-                        
-                        <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Reagendar
-                            </a>
-                            
-                        </td>
-                    </tr>
-  
-                    <tr>
-                        <td>
-                            João
-                        </td>
-                        <td>
-                            <a>
-                                8:45
-                            </a>
-                            <br/>
-                            <small>
-                                23/08/2023
-                            </small>
-                        </td>
-  
-                        <td>
-                            João@gmail.com
-                        </td>
-  
-                        <td>
-                            75 998721344
-                        </td>
-                        
-                        
-                        <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Reagendar
-                            </a>
-                            
-                        </td>
-                    </tr>
-  
-  
-                    <tr>
-                        <td>
-                            João
-                        </td>
-                        <td>
-                            <a>
-                                8:45
-                            </a>
-                            <br/>
-                            <small>
-                                23/08/2023
-                            </small>
-                        </td>
-  
-                        <td>
-                            João@gmail.com
-                        </td>
-  
-                        <td>
-                            75 998721344
-                        </td>
-                        
-                        
-                        <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Reagendar
-                            </a>
-                            
-                        </td>
-                    </tr>
-  
-                    <tr>
-                        <td>
-                            João
-                        </td>
-                        <td>
-                            <a>
-                                8:45
-                            </a>
-                            <br/>
-                            <small>
-                                23/08/2023
-                            </small>
-                        </td>
-  
-                        <td>
-                            João@gmail.com
-                        </td>
-  
-                        <td>
-                            75 998721344
-                        </td>
-                        
-                        
-                        <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Reagendar
-                            </a>
-                            
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
           </div>
+          @if (count($clientes) == 0)
+          <p class="text-center"> Não Há Clientes Agendado para Hoje</p>
+          @endif
           <!-- /.card-body -->
         </div>
         <!-- /.card -->
@@ -407,206 +246,46 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            João
-                        </td>
-                        <td>
-                            <a>
-                                8:45
-                            </a>
-                            <br/>
-                            <small>
-                                23/08/2023
-                            </small>
-                        </td>
-  
-                        <td>
-                            João@gmail.com
-                        </td>
-  
-                        <td>
-                            75 998721344
-                        </td>
-                        
-                        
-                        <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Reagendar
-                            </a>
-                            
-                        </td>
-                    </tr>
+                 @foreach ($clientes as $cliente)
+                 <tr>
+                    <td>
+                        João
+                    </td>
+                    <td>
+                        <a>
+                            8:45
+                        </a>
+                        <br/>
+                        <small>
+                            23/08/2023
+                        </small>
+                    </td>
+
+                    <td>
+                        João@gmail.com
+                    </td>
+
+                    <td>
+                        75 998721344
+                    </td>
                     
-                    <tr>
-                        <td>
-                            João
-                        </td>
-                        <td>
-                            <a>
-                                8:45
-                            </a>
-                            <br/>
-                            <small>
-                                23/08/2023
-                            </small>
-                        </td>
-  
-                        <td>
-                            João@gmail.com
-                        </td>
-  
-                        <td>
-                            75 998721344
-                        </td>
+                    
+                    <td class="project-actions text-right">
+                        <a class="btn btn-info btn-sm" href="#">
+                            <i class="fas fa-pencil-alt">
+                            </i>
+                            Reagendar
+                        </a>
                         
-                        
-                        <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Reagendar
-                            </a>
-                            
-                        </td>
-                    </tr>
-  
-                    <tr>
-                        <td>
-                            João
-                        </td>
-                        <td>
-                            <a>
-                                8:45
-                            </a>
-                            <br/>
-                            <small>
-                                23/08/2023
-                            </small>
-                        </td>
-  
-                        <td>
-                            João@gmail.com
-                        </td>
-  
-                        <td>
-                            75 998721344
-                        </td>
-                        
-                        
-                        <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Reagendar
-                            </a>
-                            
-                        </td>
-                    </tr>
-  
-                    <tr>
-                        <td>
-                            João
-                        </td>
-                        <td>
-                            <a>
-                                8:45
-                            </a>
-                            <br/>
-                            <small>
-                                23/08/2023
-                            </small>
-                        </td>
-  
-                        <td>
-                            João@gmail.com
-                        </td>
-  
-                        <td>
-                            75 998721344
-                        </td>
-                        
-                        
-                        <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Reagendar
-                            </a>
-                            
-                        </td>
-                    </tr>
-  
-  
-                    <tr>
-                        <td>
-                            João
-                        </td>
-                        <td>
-                            <a>
-                                8:45
-                            </a>
-                            <br/>
-                            <small>
-                                23/08/2023
-                            </small>
-                        </td>
-  
-                        <td>
-                            João@gmail.com
-                        </td>
-  
-                        <td>
-                            75 998721344
-                        </td>
-                        
-                        
-                        <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Reagendar
-                            </a>
-                            
-                        </td>
-                    </tr>
-  
-                    <tr>
-                        <td>
-                            João
-                        </td>
-                        <td>
-                            <a>
-                                8:45
-                            </a>
-                            <br/>
-                            <small>
-                                23/08/2023
-                            </small>
-                        </td>
-  
-                        <td>
-                            João@gmail.com
-                        </td>
-  
-                        <td>
-                            75 998721344
-                        </td>
-                        
-                        
-                        <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Reagendar
-                            </a>
-                            
-                        </td>
-                    </tr>
+                    </td>
+                </tr>
+                 @endforeach
                 </tbody>
+           
             </table>
+            @if (count($clientes) == 0)
+            <p class="text-center"> Não Há Clientes Cadastrados</p>
+            @endif
           </div>
           <!-- /.card-body -->
         </div>

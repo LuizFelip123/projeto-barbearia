@@ -108,55 +108,58 @@
           <div class="row">
             <!-- /.col (left) -->
           <div class="col-md-6">
-                <div class="card card-info">
-                  <div class="card-header">
-                    <h3 class="card-title">Adicione um horário</h3>
+             <form action="/salvar" method="post">
+              @csrf
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Adicione um horário</h3>
+                </div>
+                <div class="card-body">
+               
+                  <!-- Date range -->
+                  <div class="form-group">
+                    <label for="reservation">Data </label>
+
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="far fa-calendar-alt" for="reservation"></i>
+                        </span>
+                      </div>
+                      <input type="date" name="data" class="form-control float-right" id="reservation">
+                    </div>
+                    <!-- /.input group -->
                   </div>
-                  <div class="card-body">
-                 
-                    <!-- Date range -->
-                    <div class="form-group">
-                      <label for="reservation">Data </label>
+                  <!-- /.form group -->
 
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="far fa-calendar-alt" for="reservation"></i>
-                          </span>
-                        </div>
-                        <input type="text" name="data" class="form-control float-right" id="reservation">
+                  <!-- Date and time range -->
+                  <div class="form-group">
+                    <label for="reservationtime">Hora</label>
+
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" ><i class="far fa-clock" for="reservationtime"></i></span>
                       </div>
-                      <!-- /.input group -->
+                      <input type="text" class="form-control float-right" name="hora" id="reservationtime">
                     </div>
-                    <!-- /.form group -->
-
-                    <!-- Date and time range -->
-                    <div class="form-group">
-                      <label for="reservationtime">Hora</label>
-
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" ><i class="far fa-clock" for="reservationtime"></i></span>
-                        </div>
-                        <input type="text" class="form-control float-right" id="reservationtime">
-                      </div>
-                      <!-- /.input group -->
-                    </div>
-                    <!-- /.form group -->
-
-                    <!-- Date and time range -->
-
-
-                    <div class="form-group">
-                      <div class="input-group">
-                        <button class="btn btn-info">Adicionar hórario
-                          <i class="nav-icon fas fa-edit text-white"></i>
-                        </button>
-                      </div>
-                    </div>
-                  
+                    <!-- /.input group -->
                   </div>
-            </div>
+                  <!-- /.form group -->
+
+                  <!-- Date and time range -->
+
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <button class="btn btn-info">Adicionar hórario
+                        <i class="nav-icon fas fa-edit text-white"></i>
+                      </button>
+                    </div>
+                  </div>
+                
+                </div>
+          </div>
+             </form>
           </div><!--./col-->
           
 
@@ -182,9 +185,10 @@
                       </tr>
                     </thead>
                     <tbody>
-
+                      @foreach ($horarios as $horario)
+                        
                       <tr>
-                        <td>7:30</td>
+                        <td>{{ substr($horario->hora, 0, 5); }}</td>
                         
                         <td class="text-right py-0 align-middle">
                           <div class="btn-group btn-group-sm">
@@ -192,42 +196,10 @@
                             <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                           </div>
                         </td>
-                      <tr>
-                        <td>8:45</td>
-                        
-                        <td class="text-right py-0 align-middle">
-                          <div class="btn-group btn-group-sm">
-                            
-                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                          </div>
-                        </td>
-                      <tr>
-                        <td>9:15</td>
-                        
-                        <td class="text-right py-0 align-middle">
-                          <div class="btn-group btn-group-sm">
-                            
-                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                          </div>
-                        </td>
-                      <tr>
-                        <td>9:50</td>
-                        
-                        <td class="text-right py-0 align-middle">
-                          <div class="btn-group btn-group-sm">
-                            
-                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                          </div>
-                        </td>
-                      <tr>
-                        <td>10:40</td>
-                        
-                        <td class="text-right py-0 align-middle">
-                          <div class="btn-group btn-group-sm">
+                      </tr>
                           
-                            <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                          </div>
-                        </td>
+                      @endforeach
+               
 
                     </tbody>
                   </table>
@@ -340,12 +312,7 @@ homeElement.classList.add("active");
 setActiveClass();
 </script>
 <script type="text/javascript">
-      $('#reservation').datepicker({  
-        format: "dd/mm/yyyy", 
-        language: "pt-BR",
-        startDate: '+0d'
 
-      });
 
      flatpickr("#reservationtime", {
             enableTime: true,
