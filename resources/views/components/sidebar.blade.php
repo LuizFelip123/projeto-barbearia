@@ -13,7 +13,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info ">
-          <a href="#" class=" text-white d-block">Alexander Pierce</a>
+          <a href="#" class=" text-white d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -62,7 +62,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/login" id="sair" class="nav-link">
+            <a href="/logout" id="sair" class="nav-link">
               <i class="nav-icon fas  fa-sign-out-alt text-white"></i>
               <p class="text-white">
                 Sair

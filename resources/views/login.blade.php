@@ -19,7 +19,8 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal">
+              <form class="form-horizontal"  method="POST" action="/login">
+                @csrf
                 <div class="card-body">
                   <div class="form-group row justify-content-center">
                     <label for="inputEmail3" class="col-sm-4 col-form-label justify-content-center row ">Email</label>
@@ -30,23 +31,16 @@
                   <div class="form-group row justify-content-center">
                     <label for="inputPassword3" class="col-sm-4 col-form-label justify-content-center row">Senha</label>
                     <div class="col-md-10">
-                      <input type="password" name="senha" class="form-control" id="inputPassword3" placeholder="Senha">
+                      <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Senha">
                     </div>
                   </div>
-                  <div class="form-group row">
-                    <div class="offset-sm-2 col-sm-5">
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                        <label class="form-check-label" for="exampleCheck2">Lembrar</label>
-                      </div>
-                    </div>
-                  </div>
+                 
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-dark">logar</button>
 
-                  <button type="submit" class="btn btn-default float-right">Cancelar</button>
+
                 </div>
                 <!-- /.card-footer -->
               </form>

@@ -19,13 +19,14 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form class="form-horizontal">
+              <form class="form-horizontal" method="POST" action="/register"  >
+                @csrf
                 <div class="card-body">
 
                   <div class="form-group row justify-content-center">
                     <label for="inputPassword3" class="col-sm-4 col-form-label justify-content-center row">Nome</label>
                     <div class="col-md-10">
-                      <input type="password" name="nome" class="form-control" id="inputPassword3" placeholder="Nome completo...">
+                      <input type="text" name="name" class="form-control" id="inputPassword3" placeholder="Nome completo...">
                     </div>
                   </div>
 
@@ -33,7 +34,7 @@
                   <div class="form-group row justify-content-center">
                     <label for="inputPassword3" class="col-sm-4 col-form-label justify-content-center row">Telefone</label>
                     <div class="col-md-10">
-                      <input type="password" name="telefone" class="form-control" id="inputPassword3" placeholder="telefone">
+                      <input type="text" name="telefone" class="form-control" id="inputPassword3" placeholder="telefone">
                     </div>
                   </div>
 
@@ -46,30 +47,22 @@
                   <div class="form-group row justify-content-center">
                     <label for="inputPassword3" class="col-sm-4 col-form-label justify-content-center row">Senha</label>
                     <div class="col-md-10">
-                      <input type="password" name="senha" class="form-control" id="inputPassword3" placeholder="Senha">
+                      <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Senha">
                     </div>
                   </div>
 
 
-                  <div class="form-group row">
-                    <div class="offset-sm-2 col-sm-5">
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                        <label class="form-check-label" for="exampleCheck2">Lembrar</label>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-dark">Criar conta</button>
-                  <button type="submit" class="btn btn-default float-right">Cancelar</button>
+
                 </div>
                 <!-- /.card-footer -->
               </form>
             </div>
             <!-- /.card -->
-             <span class="row justify-content-center">Já possui uma conta? <a href="login.html" class="ml-2">Entrar</a></span>
+             <span class="row justify-content-center">Já possui uma conta? <a href="/login" class="ml-2">Entrar</a></span>
       </div>
     
         
