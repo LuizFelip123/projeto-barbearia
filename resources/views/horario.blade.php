@@ -165,24 +165,11 @@
                         <td>@foreach ($data->horarios as $item)
                           <span>{{ substr($item->hora, 0, 5); }}  |  </span>
                         @endforeach</td>
-                        <th><button class="btn btn-outline-primary">reservar</button></th>
+                        <th><button  data-toggle="modal" data-target="#modal-horarios{{$data->id}}" class="btn btn-outline-primary">reservar</button></th>
                        
                       </tr>
-           
-                      @endforeach
-                    
-                      </tbody>
-                    </table>
-                  </div>
-                  <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-
-    <!--./horários disponivéis este mês-->
-
-   
-    <!--modal-->
-      <div class="modal fade" id="modal-horarios">
+               <!--modal-->
+      <div class="modal fade" id="modal-horarios{{$data->id}}">
         <div class="modal-dialog">
           <div class="modal-content bg-info">
             <div class="modal-header">
@@ -194,29 +181,14 @@
             <div class="modal-body">
               
               <!--horarios-->
+
+              @foreach ($data->horarios as $item)
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">7:30</label>
+                <label class="form-check-label" for="inlineRadio1">{{ substr($item->hora, 0, 5); }}</label>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">9:45</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
-                <label class="form-check-label" for="inlineRadio3">10:30 </label>
-              </div>
-
-               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
-                <label class="form-check-label" for="inlineRadio3">15:20</label>
-              </div>
-
-               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" >
-                <label class="form-check-label" for="inlineRadio3">16:15</label>
-              </div>
-              <!--./horarios-->
+            @endforeach</td>
+             
 
             </div>
             <div class="modal-footer justify-content-between">
@@ -230,6 +202,19 @@
       </div>
       <!-- /.modal -->
     <!--./modal-->
+                      @endforeach
+                    
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+    <!--./horários disponivéis este mês-->
+
+   
+
     
     <script type="text/javascript">
       $('#calendario').datepicker({  
