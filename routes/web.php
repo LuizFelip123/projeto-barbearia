@@ -19,23 +19,26 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->middleware('auth');
 Route::get('/registro', function () {
     return view('registro');
 });
 
-Route::post('/salvar', [AgendaController::class, 'store']);
-Route::get('/horario',[DataController::class, 'index'] );
-Route::get('/clientes', [UserController::class, 'index']);
-Route::get('/delete/{id}',[HorarioController::class, 'destroy']);
+Route::post('/salvar', [AgendaController::class, 'store'])->middleware('auth');
+Route::get('/horario',[DataController::class, 'index'] )->middleware('auth');;
+Route::get('/clientes', [UserController::class, 'index'])->middleware('auth');;
+Route::get('/delete/{id}',[HorarioController::class, 'destroy'])->middleware('auth');;
 Route::get('/listar', function () {
     return view('listar');
-});
+})->middleware('auth');;
 
-Route::get('/adicionar',[AgendaController::class, 'index']);
+Route::get('/adicionar',[AgendaController::class, 'index'])->middleware('auth');;
 
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
+Route::post('/register', [UserController::class, 'register']);
 
+Route::post('/login', [UserController::class, 'login']);
+Route::get('/logout',[UserController::class, 'logout']);
