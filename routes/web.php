@@ -25,9 +25,11 @@ Route::get('/registro', function () {
 });
 
 Route::post('/salvar', [AgendaController::class, 'store'])->middleware('auth');
-Route::get('/horario',[DataController::class, 'index'] )->middleware('auth');;
-Route::get('/clientes', [UserController::class, 'index'])->middleware('auth');;
-Route::get('/delete/{id}',[HorarioController::class, 'destroy'])->middleware('auth');;
+Route::get('/horario',[DataController::class, 'index'] )->middleware('auth');
+Route::get('/clientes', [UserController::class, 'index'])->middleware('auth');
+Route::get('/delete/{id}',[HorarioController::class, 'destroy'])->middleware('auth');
+Route::post('/resevar', [HorarioController::class, 'joinUser'])->middleware('auth');
+
 Route::get('/listar', function () {
     return view('listar');
 })->middleware('auth');;
