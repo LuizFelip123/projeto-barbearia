@@ -249,7 +249,7 @@
                  @foreach ($clientes as $cliente)
                  <tr>
                     <td>
-                        João
+                        {{$cliente->name}}
                     </td>
                     <td>
                         <a>
@@ -262,11 +262,11 @@
                     </td>
 
                     <td>
-                        João@gmail.com
+                        {{$cliente->email}}
                     </td>
 
                     <td>
-                        75 998721344
+                      {{$cliente->telefone}}
                     </td>
                     
                     
