@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Data;
+use App\Models\Horario;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
@@ -11,7 +15,16 @@ class UserController extends Controller
 {
     //
     public function index(){
-        return view('clientes', ['clientes'=> User::role('cliente')->get()]);
+      $dataAtual = Carbon::now();
+      $data = Data::whereDate('data', $dataAtual->toDateString())->first();
+      $users = [];
+      foreach ($data->horarios as $horario) {
+        
+        if ($horario->user && $horario->user->hasRole('cliente')) {
+            $users[] = $horario->user;
+        }
+    }
+        return view('clientes', ['clientes'=> User::role('cliente')->get(), 'clienteHoje'=>$users  ]);
     }
     public function register(Request $request){
         Validator::make($request->all(), [
@@ -34,7 +47,7 @@ class UserController extends Controller
             Role::create(['name' => 'cliente']);
             $user->assignRole('admin');
         }
-        
+        $user->assignRole('cliente');
         $request->session()->regenerate();
         
         Auth::login($user);

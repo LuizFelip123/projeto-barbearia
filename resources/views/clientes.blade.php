@@ -158,44 +158,50 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($clientes as $cliente)
+                    @foreach ($clienteHoje as $cliente)
                     <tr>
-                        <td>
-                            João
-                        </td>
-                        <td>
-                            <a>
-                                8:45
-                            </a>
-                            <br/>
-                            <small>
-                                23/08/2023
-                            </small>
-                        </td>
-  
-                        <td>
-                            João@gmail.com
-                        </td>
-  
-                        <td>
-                            75 998721344
-                        </td>
-                        
-                        
-                        <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Reagendar
-                            </a>
+                      <td>
+                          {{$cliente->name}}
+                      </td>
+                      <td>
+                          <a>
+                            @foreach ($cliente->horarios as $horario)
+                            {{ substr($horario->hora, 0, 5); }} hrs - 
+                            {{date('d/m/Y', strtotime($horario->data->data))}}
                             
-                        </td>
-                    </tr>
+                            @endforeach
+  
+                            @if(count($cliente->horarios) == 0 )
+                                Sem Horários Agendados
+                            @endif
+                          </a>
+                       
+                        
+                      </td>
+  
+                      <td>
+                          {{$cliente->email}}
+                      </td>
+  
+                      <td>
+                        {{$cliente->telefone}}
+                      </td>
+                      
+                      
+                      <td class="project-actions text-right">
+                          <a class="btn btn-info btn-sm" href="#">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Reagendar
+                          </a>
+                          
+                      </td>
+                  </tr>
                     @endforeach
                 </tbody>
             </table>
           </div>
-          @if (count($clientes) == 0)
+          @if (count($clienteHoje) == 0)
           <p class="text-center"> Não Há Clientes Agendado para Hoje</p>
           @endif
           <!-- /.card-body -->
@@ -253,12 +259,18 @@
                     </td>
                     <td>
                         <a>
-                            8:45
+                          @foreach ($cliente->horarios as $horario)
+                          {{ substr($horario->hora, 0, 5); }} hrs - 
+                          {{date('d/m/Y', strtotime($horario->data->data))}}
+                          
+                          @endforeach
+
+                          @if(count($cliente->horarios) == 0 )
+                              Sem Horários Agendados
+                          @endif
                         </a>
-                        <br/>
-                        <small>
-                            23/08/2023
-                        </small>
+                     
+                      
                     </td>
 
                     <td>

@@ -163,7 +163,9 @@
                       <tr>
                         <td>{{date('d/m/Y', strtotime($data->data))}}</td>
                         <td>@foreach ($data->horarios as $item)
-                          <span>{{ substr($item->hora, 0, 5); }}  |  </span>
+                          <span> @if ($item->user == null)
+                            {{ substr($item->hora, 0, 5); }}  
+                          @endif|  </span>
                         @endforeach</td>
                         <th><button  data-toggle="modal" data-target="#modal-horarios{{$data->id}}" class="btn btn-outline-primary">reservar</button></th>
                        
@@ -178,23 +180,28 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+      <form action="/resevar" method="post">
+        @csrf
+        <div class="modal-body">
               
-              <!--horarios-->
+          <!--horarios-->
 
-              @foreach ($data->horarios as $item)
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">{{ substr($item->hora, 0, 5); }}</label>
-              </div>
-            @endforeach</td>
-             
+          @foreach ($data->horarios as $item)
+           @if ($item->user == null)
+           <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="horario" id="inlineRadio1" value="{{$item->id}}">
+            <label class="form-check-label" for="inlineRadio1">{{ substr($item->hora, 0, 5); }}</label>
+          </div>    
+           @endif
+        @endforeach
+         
 
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-outline-light" data-dismiss="modal">Fechar</button>
-              <button type="button" class="btn btn-outline-light">Salvar</button>
-            </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-outline-light" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-outline-light">Salvar</button>
+        </div>
+      </form>
           </div>
           <!-- /.modal-content -->
         </div>
