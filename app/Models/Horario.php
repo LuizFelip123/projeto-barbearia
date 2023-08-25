@@ -14,5 +14,9 @@ class Horario extends Model
         return $this->belongsTo('App\Models\Data');
     }
 
-    
+    public function user(){
+
+        return $this->belongsTo('App\Models\User');
+    }
+
 }

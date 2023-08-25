@@ -32,8 +32,7 @@
             </a>
           
           </li>
-
-        
+          @if (Auth::check() && !Auth::user()->hasRole('cliente'))
           <li class="nav-item">
             <a href="/adicionar" id="addHorario" class="nav-link">
               <i class="nav-icon fas fa-edit text-white"></i>
@@ -43,15 +42,19 @@
             </a>
 
           </li>
-          <li class="nav-item">
-            <a href="/clientes" id="listCliente" class="nav-link">
-              <i class="nav-icon fas fa-table text-white"></i>
-              <p class="text-white" >
-                Listar clientes
-              </p>
-            </a>
-           
-          </li>
+      @endif
+      @if (Auth::check() && !Auth::user()->hasRole('cliente'))
+      <li class="nav-item">
+        <a href="/clientes" id="listCliente" class="nav-link">
+          <i class="nav-icon fas fa-table text-white"></i>
+          <p class="text-white" >
+            Listar clientes
+          </p>
+        </a>
+       
+      </li>
+      @endif
+          
           <li class="nav-item">
             <a href="/horario" id="listHorario" class="nav-link">
               <i class="nav-icon far fa-calendar-alt text-white"></i>
