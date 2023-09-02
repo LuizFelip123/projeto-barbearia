@@ -1,6 +1,7 @@
 #Sistema  de agendamento para uma barbearia - Em construção
 
-Backend foi feito em laravel, o banco de dados é o mysql.
+Backend foi feito em laravel, o banco de dados é o mysql
+
 Tela de Login
 ![Alt text](/img/img-1.png)
 
