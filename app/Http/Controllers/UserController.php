@@ -18,12 +18,14 @@ class UserController extends Controller
       $dataAtual = Carbon::now();
       $data = Data::whereDate('data', $dataAtual->toDateString())->first();
       $users = [];
-      foreach ($data->horarios as $horario) {
+        if($data != null){
+            foreach ($data->horarios as $horario) {
         
-        if ($horario->user && $horario->user->hasRole('cliente')) {
-            $users[] = $horario->user;
+                if ($horario->user && $horario->user->hasRole('cliente')) {
+                    $users[] = $horario->user;
+                }
+            } 
         }
-    }
         return view('clientes', ['clientes'=> User::role('cliente')->get(), 'clienteHoje'=>$users  ]);
     }
     public function register(Request $request){
