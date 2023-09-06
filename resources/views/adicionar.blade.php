@@ -106,7 +106,7 @@
           <!--row-->
           <div class="row">
             <!-- /.col (left) -->
-          <div class="col-md-6">
+          <div class="col-sm-6">
              <form action="/salvar" method="post">
               @csrf
               <div class="card card-info ml-2 mt-2">
@@ -203,14 +203,19 @@
                   </div>
                 
             </div>
+
+
            
              </form>
           </div><!--./col-->
           
 
             <!--col-->
-            <div class="col-sm-6 mt-2 ">
-                  <div class="card card-info">
+            <div class="">
+              
+            </div>
+            <div class=" col-sm-6 mt-2 ">
+                  <div class="card card-info ml-2 ml-sm-0 row">
                   <div class="card-header">
                     <h3 class="card-title">Horários de hoje</h3>
 
@@ -243,8 +248,46 @@
                     </tbody>
                   </table>
                 </div>
+
+                 
+
+
+
               
             </div><!--./col-->
+            <div class="card card-info ml-2 ml-sm-0 row ">
+                  <div class="card-header">
+                    <h3 class="card-title">Todos os horários</h3>
+
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                  <table class="table">
+                    
+                    <tbody>
+                     
+                        
+                      <tr>
+                        <td></td>
+                        
+                        <td class="text-right py-0 align-middle">
+                          <div class="btn-group btn-group-sm">
+                            
+                            <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                          
+                    
+               
+
+                    </tbody>
+                  </table>
+                </div>
 
 
            
@@ -263,13 +306,7 @@
           
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="#">System skill</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
-    </div>
-  </footer>
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -278,6 +315,13 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+<footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="#">System skill</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.1.0
+      </div>
+    </footer>
 <!--date picker-->
 <script>
   function setActiveClass() {
