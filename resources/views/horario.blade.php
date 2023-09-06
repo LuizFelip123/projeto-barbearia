@@ -97,29 +97,30 @@
 
   @endcomponent
   <!-- Content Wrapper. Contains page content -->
+  <h1 class=" row bg-info justify-content-center">Faça um agendamento</h1>
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Faça um agendamento</h1>
+        <div class="r">
+          <div class="col-sm-12">
+            
           </div><!-- /.col -->
        
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    </div>
+    
     <!-- /.content-header -->
    
     <!-- Calendário -->
     <div class="container">
       <form class="form-horizontal">
          <div class="form-group">
-          <label class="col-sm-2 control-label">Data</label>
+          <label class="col-sm-2 control-label ">Data</label>
           <div class="col-sm-10">
             <div class="input-group date">
               <input type="text" class="col-sm-3 " class="form-control" id="calendario" value="  ">
-              <button class="btn btn-outline-primary " data-toggle="modal" data-target="#modal-horarios" type="button">horários disponíveis nesta data</button>
+              <button class="btn btn-info ml-2" data-toggle="modal" data-target="#modal-horarios" type="button">horários disponíveis nesta data</button>
             </div>
 
           </div>
@@ -135,25 +136,24 @@
     <!-- ./calendário-->
 
     <!--horários disponivéis este mês-->
-        <!-- /.row -->
-            <div class="row">
-              <div class="col-12">
-                <div class="card">
-                  <div class="card-header">
-                    <h3 class="card-title">horarios disponíveis este mês</h3>
+  
+                  <div class="card-body table-responsive p-0 mt-4" style="height: 300px;">
 
-                    <div class="card-tools">
-                      </div>
+                    
+                    <div  class="bg-info rounded-top mb-0 mt-4 p-2 border-top-0 border border-light">
+                       <h4 class="mb-0 row justify-content-center">Horarios deste mês</h4>
                     </div>
-                  </div>
-                  <!-- /.card-header -->
-                  <div class="card-body table-responsive p-0" style="height: 300px;">
-                    <table class="table table-head-fixed text-nowrap">
+
+                   
+                    
+                    <table class="table table-head-fixed bg-light">
+
                       <thead>
+                        
                         <tr>
-                          <th>Data</th>
-                          <th>Hora</th>
-                          <th>Ação</th>
+                          <th class="text-primary">Data</th>
+                          <th class="text-primary">Hora</th>
+                          <th class="text-primary">Ação</th>
                         
                           
                         </tr>
