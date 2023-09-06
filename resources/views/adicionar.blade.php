@@ -29,7 +29,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="assets/css/bootstrap-datepicker.css" rel="stylesheet"/>
   <script src="assets/js/bootstrap-datepicker.min.js"></script> 
   <script src="assets/js/bootstrap-datepicker.pt-BR.min.js" charset="UTF-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
@@ -110,7 +109,7 @@
           <div class="col-md-6">
              <form action="/salvar" method="post">
               @csrf
-              <div class="card card-info">
+              <div class="card card-info ml-2 mt-2">
                 <div class="card-header">
                   <h3 class="card-title">Adicione um horário</h3>
                 </div>
@@ -149,78 +148,14 @@
                   <!-- Date and time range -->
 
 
-                  <div class="form-group">
-                    <div class="input-group">
-                      <button class="btn btn-info">Adicionar hórario
-                        <i class="nav-icon fas fa-edit text-white"></i>
-                      </button>
-                    </div>
-                  </div>
-                
+                  
                 </div>
           </div>
-             </form>
-          </div><!--./col-->
-          
-
-            <!--col-->
-            <div class="col-sm-6">
-                  <div class="card card-info">
-                  <div class="card-header">
-                    <h3 class="card-title">Horários de hoje</h3>
-
-                    <div class="card-tools">
-                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-minus"></i>
-                      </button>
-                    </div>
-                </div>
-                <div class="card-body p-0">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Horário</th>
-                        
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach ($horarios as $horario)
-                        
-                      <tr>
-                        <td>{{ substr($horario->hora, 0, 5); }}</td>
-                        
-                        <td class="text-right py-0 align-middle">
-                          <div class="btn-group btn-group-sm">
-                            
-                            <a href="/delete/{{$horario->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                          </div>
-                        </td>
-                      </tr>
-                          
-                      @endforeach
-               
-
-                    </tbody>
-                  </table>
-                </div>
-              
-            </div><!--./col-->
-            
-          </div><!--./row-->
-    
-          
-
-            
-            <!-- /.card-body -->
-          
-          <!-- /.card -->
-
-            <!-- Bootstrap Switch -->
-            <div class="card card-info col-sm-12">
+          <div class="card card-info ml-2">
               <div class="card-header">
                 <h3 class="card-title">Repetir</h3>
               </div>
+              <!--repitir dias da semana-->
               <div class="card-body">
                 <div class="row justify-content-center">
                    <label for="seg"  class="ml-2">Seg
@@ -254,35 +189,77 @@
 
                    </label>
                 </div>
-
-
-                
-                  
-
-                  
-
                  
-                  
-
-                 
-                  
-
-                 
-                  
-                
-                  
-                 
-                 
-                   
-                
-               
-                 
-                
-
-                
               </div>
+              <!--./repitir dias da semana-->
+
+             
+              <div class="form-group mt-2 ml-2 ">
+                    <div class="input-group">
+                      <button type="submit" class="btn btn-info">Adicionar hórario
+                        <i class="nav-icon fas fa-edit text-white"></i>
+                      </button>
+                    </div>
+                  </div>
+                
             </div>
            
+             </form>
+          </div><!--./col-->
+          
+
+            <!--col-->
+            <div class="col-sm-6 mt-2 ">
+                  <div class="card card-info">
+                  <div class="card-header">
+                    <h3 class="card-title">Horários de hoje</h3>
+
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                  <table class="table">
+                    
+                    <tbody>
+                      @foreach ($horarios as $horario)
+                        
+                      <tr>
+                        <td>{{ substr($horario->hora, 0, 5); }}</td>
+                        
+                        <td class="text-right py-0 align-middle">
+                          <div class="btn-group btn-group-sm">
+                            
+                            <a href="/delete/{{$horario->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                          
+                      @endforeach
+               
+
+                    </tbody>
+                  </table>
+                </div>
+              
+            </div><!--./col-->
+
+
+           
+            
+          </div><!--./row-->
+            
+          
+
+            
+            <!-- /.card-body -->
+          
+          <!-- /.card -->
+
+            <!-- Bootstrap Switch -->
+
           
   </div>
   <!-- /.content-wrapper -->
@@ -304,10 +281,10 @@
 <!--date picker-->
 <script>
   function setActiveClass() {
-var homeElement = document.getElementById('addHorario');
-if (homeElement) {
-homeElement.classList.add("active");
-}
+    var homeElement = document.getElementById('addHorario');
+    if (homeElement) {
+    homeElement.classList.add("active");
+    }
 }
 setActiveClass();
 </script>
