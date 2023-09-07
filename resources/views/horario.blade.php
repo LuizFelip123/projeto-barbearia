@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -114,8 +112,8 @@
             <label class="col-sm-2 control-label mt-3">Data</label>
             <div class="col-sm-10">
               <div class="input-group date">
-                <input type="text" class="col-sm-3 " class="form-control" id="calendario" value="  ">
-                <button class="btn btn-outline-primary ml-2 p-2" data-toggle="modal" data-target="#modal-horarios" type="button">horários disponíveis nesta data</button>
+                <input type="text" class="col-sm-3 " class="form-control bord" id="calendario" value="  ">
+                <button class="btn btn-outline-primary ml-2 p-2" data-toggle="modal" data-target="#modal-horarios" >horários disponíveis nesta data</button>
               </div>
 
             </div>
@@ -140,7 +138,7 @@
                       </div>
 
       
-                      <table class="table table-head-fixed table-hover ">
+                      <table class="table table-head-fixed">
                         <thead>
                           <tr>
 
