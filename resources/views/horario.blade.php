@@ -97,7 +97,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-6">
-              <h1 class=" mb-4">Faça um agendamento</h1>
+              <h1 class=" mb-4 text-dark">Faça um agendamento</h1>
             </div><!-- /.col -->
          
           </div><!-- /.row -->
@@ -109,10 +109,10 @@
       <div class="container">
         <form class="form-horizontal">
            <div class="form-group">
-            <label class="col-sm-2 control-label mt-3">Data</label>
+            <label class="col-sm-2 control-label mt-3 text-dark">Data</label>
             <div class="col-sm-10">
               <div class="input-group date">
-                <input type="text" class="col-sm-3 " class="form-control bord" id="calendario" value="  ">
+                <input type="text" style="background: #F4F3F2;" class="col-sm-3 rounded border border-dark" class="form-control bord" id="calendario" value="  ">
                 <button class="btn btn-outline-primary ml-2 p-2" data-toggle="modal" data-target="#modal-horarios" >horários disponíveis nesta data</button>
               </div>
 
@@ -139,7 +139,7 @@
 
       
                       <table class="table table-head-fixed">
-                        <thead>
+                        <thead">
                           <tr>
 
                             <th  class="text-primary " scope="col">Data</th>
@@ -189,7 +189,7 @@
                              @endif
                           @endforeach
                            
-
+                                <script></script>
                           </div>
                           <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-outline-light" data-dismiss="modal">Fechar</button>
