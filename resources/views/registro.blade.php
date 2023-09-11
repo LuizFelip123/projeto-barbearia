@@ -26,7 +26,10 @@
                   <div class="form-group row justify-content-center">
                     <label for="inputPassword3" class="col-sm-4 col-form-label justify-content-center row">Nome</label>
                     <div class="col-md-10">
+
+                   
                       <input type="text" name="name" class="form-control" id="inputPassword3" placeholder="Nome completo...">
+
                     </div>
                   </div>
 

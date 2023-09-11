@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -22,21 +20,13 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="assets/css/bootstrap-datepicker.css" rel="stylesheet"/>
-  <script src="assets/js/bootstrap-datepicker.min.js"></script> 
-  <script src="assets/js/bootstrap-datepicker.pt-BR.min.js" charset="UTF-8"></script>
+  <!--time picker-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-  <!--./datepicker-->
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -107,10 +97,10 @@
           <!--row-->
           <div class="row">
             <!-- /.col (left) -->
-          <div class="col-md-6">
+          <div class="col-sm-6">
              <form action="/salvar" method="post">
               @csrf
-              <div class="card card-info">
+              <div class="card card-info ml-2 mt-2">
                 <div class="card-header">
                   <h3 class="card-title">Adicione um horário</h3>
                 </div>
@@ -149,78 +139,14 @@
                   <!-- Date and time range -->
 
 
-                  <div class="form-group">
-                    <div class="input-group">
-                      <button class="btn btn-info">Adicionar hórario
-                        <i class="nav-icon fas fa-edit text-white"></i>
-                      </button>
-                    </div>
-                  </div>
-                
+                  
                 </div>
           </div>
-             </form>
-          </div><!--./col-->
-          
-
-            <!--col-->
-            <div class="col-sm-6">
-                  <div class="card card-info">
-                  <div class="card-header">
-                    <h3 class="card-title">Horários de hoje</h3>
-
-                    <div class="card-tools">
-                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-minus"></i>
-                      </button>
-                    </div>
-                </div>
-                <div class="card-body p-0">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Horário</th>
-                        
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach ($horarios as $horario)
-                        
-                      <tr>
-                        <td>{{ substr($horario->hora, 0, 5); }}</td>
-                        
-                        <td class="text-right py-0 align-middle">
-                          <div class="btn-group btn-group-sm">
-                            
-                            <a href="/delete/{{$horario->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                          </div>
-                        </td>
-                      </tr>
-                          
-                      @endforeach
-               
-
-                    </tbody>
-                  </table>
-                </div>
-              
-            </div><!--./col-->
-            
-          </div><!--./row-->
-    
-          
-
-            
-            <!-- /.card-body -->
-          
-          <!-- /.card -->
-
-            <!-- Bootstrap Switch -->
-            <div class="card card-info col-sm-12">
+          <div class="card card-info ml-2">
               <div class="card-header">
                 <h3 class="card-title">Repetir</h3>
               </div>
+              <!--repitir dias da semana-->
               <div class="card-body">
                 <div class="row justify-content-center">
                    <label for="seg"  class="ml-2">Seg
@@ -254,45 +180,124 @@
 
                    </label>
                 </div>
-
-
-                
-                  
-
-                  
-
                  
-                  
-
-                 
-                  
-
-                 
-                  
-                
-                  
-                 
-                 
-                   
-                
-               
-                 
-                
-
-                
               </div>
+              <!--./repitir dias da semana-->
+
+             
+              <div class="form-group mt-2 ml-2 ">
+                    <div class="input-group">
+                      <button type="submit" class="btn btn-info">Adicionar hórario
+                        <i class="nav-icon fas fa-edit text-white"></i>
+                      </button>
+                    </div>
+                  </div>
+                
             </div>
+
+
            
+             </form>
+          </div><!--./col-->
+          
+
+            <!--col-->
+            <div class="">
+              
+            </div>
+            <div class=" col-sm-6 mt-2 ">
+                  <div class="card card-info ml-2 ml-sm-0 row">
+                  <div class="card-header">
+                    <h3 class="card-title">Horários de hoje</h3>
+
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                  <table class="table">
+                    
+                    <tbody>
+                      @foreach ($horarios as $horario)
+                        
+                      <tr>
+                        <td>{{ substr($horario->hora, 0, 5); }}</td>
+                        
+                        <td class="text-right py-0 align-middle">
+                          <div class="btn-group btn-group-sm">
+                            
+                            <a href="/delete/{{$horario->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                          
+                      @endforeach
+               
+
+                    </tbody>
+                  </table>
+                </div>
+
+                 
+
+
+
+              
+            </div><!--./col-->
+            <div class="card card-info ml-2 ml-sm-0 row ">
+                  <div class="card-header">
+                    <h3 class="card-title">Todos os horários</h3>
+
+                    <div class="card-tools">
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                  <table class="table">
+                    
+                    <tbody>
+                     
+                        
+                      <tr>
+                        <td></td>
+                        
+                        <td class="text-right py-0 align-middle">
+                          <div class="btn-group btn-group-sm">
+                            
+                            <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                          
+                    
+               
+
+                    </tbody>
+                  </table>
+                </div>
+
+
+           
+            
+          </div><!--./row-->
+            
+          
+
+            
+            <!-- /.card-body -->
+          
+          <!-- /.card -->
+
+            <!-- Bootstrap Switch -->
+
           
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="#">System skill</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
-    </div>
-  </footer>
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -301,13 +306,20 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+<footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="#">System skill</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.1.0
+      </div>
+    </footer>
 <!--date picker-->
 <script>
   function setActiveClass() {
-var homeElement = document.getElementById('addHorario');
-if (homeElement) {
-homeElement.classList.add("active");
-}
+    var homeElement = document.getElementById('addHorario');
+    if (homeElement) {
+    homeElement.classList.add("active");
+    }
 }
 setActiveClass();
 </script>
@@ -347,9 +359,6 @@ setActiveClass();
 <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
