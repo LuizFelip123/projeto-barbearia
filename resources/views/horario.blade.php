@@ -138,11 +138,11 @@
                       </div>
 
       
-                      <table class="table table-head-fixed">
+                      <table class="table table-head-fixed" style="width: 90%;">
                         <thead">
                           <tr>
 
-                            <th  class="text-primary " scope="col">Data</th>
+                            <th  class="text-primary " scope="col" style="margin-left">Data "</th>
                             <th class="text-primary" scope="col">Hora</th>
                             <th class="text-primary" scope="col">Ação</th>
                           
