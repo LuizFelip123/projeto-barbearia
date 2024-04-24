@@ -23,16 +23,16 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="assets/css/bootstrap-datepicker.css" rel="stylesheet"/>
-  <script src="assets/js/bootstrap-datepicker.min.js"></script> 
+  <script src="assets/js/bootstrap-datepicker.min.js"></script>
   <script src="assets/js/bootstrap-datepicker.pt-BR.min.js" charset="UTF-8"></script>
 
   <!--./datepicker-->
 
-  
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed ">
   <div class="wrapper">
@@ -79,7 +79,7 @@
             <i class="fas fa-expand-arrows-alt"></i>
           </a>
         </li>
-       
+
       </ul>
     </nav>
     <!-- /.navbar -->
@@ -90,7 +90,7 @@
     @endcomponent
     <!-- Content Wrapper. Contains page content -->
 
-    
+
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header">
@@ -99,12 +99,12 @@
             <div class="col-sm-6">
               <h1 class=" mb-4 text-dark">Faça um agendamento</h1>
             </div><!-- /.col -->
-         
+
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
-      
+
       <!-- /.content-header -->
-     
+
       <!-- Calendário -->
       <div class="container">
         <form class="form-horizontal">
@@ -118,10 +118,10 @@
 
             </div>
             </div>
-      
+
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-            
+
             </div>
           </div>
         </form>
@@ -129,24 +129,24 @@
       <!-- ./calendário-->
 
       <!--horários disponivéis este mês-->
-    
+
                     <div class="card-body table-responsive p-0 mt-4" style="height: 300px;">
 
-                      
+
                       <div  class="bg-dark rounded-top mb-0  p-2 mt-4">
                          <h4 class="mb-0 row justify-content-center">Horários deste mês</h4>
                       </div>
 
-      
+
                       <table class="table table-head-fixed" style="width: 90%;">
-                        <thead">
+                        <thead>
                           <tr>
 
-                            <th  class="text-primary " scope="col" style="margin-left">Data "</th>
+                            <th  class="text-primary " scope="col">Data </th>
                             <th class="text-primary" scope="col">Hora</th>
                             <th class="text-primary" scope="col">Ação</th>
-                          
-                            
+
+
                           </tr>
                         </thead>
                         <tbody class="table-light">
@@ -155,13 +155,13 @@
                               <td >{{date('d/m/Y', strtotime($data->data))}}</td>
                               <td>@foreach ($data->horarios as $item)
                                 <span> @if ($item->user == null)
-                                  {{ substr($item->hora, 0, 5); }}  
+                                  {{ substr($item->hora, 0, 5); }}
                                 @endif|  </span>
                               @endforeach</td>
                               <th><button  data-toggle="modal" data-target="#modal-horarios{{$data->id}}" class="btn btn-success">reservar</button></th>
-                             
+
                             </tr>
-                      
+
 
 
                             <!--modal-->
@@ -177,7 +177,7 @@
                             <form action="/resevar" method="post">
                             @csrf
                             <div class="modal-body">
-                
+
                             <!--horarios-->
 
                             @foreach ($data->horarios as $item)
@@ -185,10 +185,10 @@
                              <div class="form-check form-check-inline">
                               <input class="form-check-input" type="radio" name="horario" id="inlineRadio1" value="{{$item->id}}">
                               <label class="form-check-label" for="inlineRadio1">{{ substr($item->hora, 0, 5); }}</label>
-                            </div>    
+                            </div>
                              @endif
                           @endforeach
-                           
+
                                 <script></script>
                           </div>
                           <div class="modal-footer justify-content-between">
@@ -204,7 +204,7 @@
                           <!-- /.modal-dialog -->
                         </div>
                         @endforeach
-                      
+
                       </tbody>
                 </table>
               </div>
@@ -214,16 +214,16 @@
 
       <!--./horários disponivéis este mês-->
       <script type="text/javascript">
-        $('#calendario').datepicker({  
-          format: "dd/mm/yyyy", 
+        $('#calendario').datepicker({
+          format: "dd/mm/yyyy",
           language: "pt-BR",
           startDate: '+0d'
 
         });
       </script>
-      
-      
-    
+
+
+
     <!-- /.content-wrapper -->
     <footer class="main-footer">
       <strong>Copyright &copy; 2014-2021 <a href="#">System skill</a>.</strong>
