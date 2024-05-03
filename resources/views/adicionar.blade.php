@@ -265,15 +265,15 @@
 
                     <tbody>
 
-                    @foreach ($horarios as $horario)
+                    @foreach ($todosHorarios as $horario)
 
                       <tr>
-                        <td>{{$horario}}</td>
+                        <td>{{$horario['hora']}}</td>
 
                         <td class="text-right py-0 align-middle">
                           <div class="btn-group btn-group-sm">
 
-                          <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                          <a href="/delete/{{$horario->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                           </div>
                         </td>
                       </tr>

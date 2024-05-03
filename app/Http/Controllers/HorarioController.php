@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class HorarioController extends Controller
 {
     //
-    public function destroy($id){
+    public function delete($id){
+
 
         Horario::findOrFail($id)->delete();
         return redirect('adicionar' );
@@ -24,4 +25,8 @@ class HorarioController extends Controller
       return redirect('/horario');
 
     }
+
+
+
+
 }

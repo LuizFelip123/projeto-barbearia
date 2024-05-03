@@ -17,12 +17,14 @@
         </div>
       </div>
 
-   
+
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+
+          with font-awesome or any other icon font library -->
+          @if (Auth::check() && Auth::user()->hasRole('admin'))
           <li class="nav-item menu-open ">
             <a href="/" id="home" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt text-white"></i>
@@ -30,9 +32,10 @@
                 Home
               </p>
             </a>
-          
+            @endif
+
           </li>
-          @if (Auth::check() && !Auth::user()->hasRole('cliente'))
+          @if (Auth::check() && Auth::user()->hasRole('admin'))
           <li class="nav-item">
             <a href="/adicionar" id="addHorario" class="nav-link">
               <i class="nav-icon fas fa-edit text-white"></i>
@@ -43,7 +46,7 @@
 
           </li>
       @endif
-      @if (Auth::check() && !Auth::user()->hasRole('cliente'))
+      @if (Auth::check() && Auth::user()->hasRole('admin'))
       <li class="nav-item">
         <a href="/clientes" id="listCliente" class="nav-link">
           <i class="nav-icon fas fa-table text-white"></i>
@@ -51,10 +54,10 @@
             Listar clientes
           </p>
         </a>
-       
+
       </li>
       @endif
-          
+
           <li class="nav-item">
             <a href="/horario" id="listHorario" class="nav-link">
               <i class="nav-icon far fa-calendar-alt text-white"></i>
@@ -72,9 +75,9 @@
               </p>
             </a>
 
-        
-         
-          </li>          
+
+
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

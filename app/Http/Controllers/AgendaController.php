@@ -13,6 +13,8 @@ class AgendaController extends Controller
 
 
 
+
+
     public function store(Request $request){
         $dia = new Data;
 
@@ -29,21 +31,36 @@ class AgendaController extends Controller
 
        $dia->refresh();
       $horario->data_id = $dia->id;
+      dd($horario);
       $horario->save();
         return redirect('adicionar');
     }
     public function index(){
-       $horarios = Horario::pluck('hora')->toArray();
+        //recupera todos os horarios
+       $todosHorarios = Horario::all();
+
        $dataAtual = Carbon::now();
+
+
        $data = Data::whereDate('data', $dataAtual->toDateString())->first();
-        if($data == null){
-            $horariosAtual =[];
+
+       if($data == null){
+            $horariosHoje =[];
         }else{
-            $horariosAtual = $data->horarios ;
+            $horariosHoje = $data->horarios ;
         }
-       return view('adicionar', ['horariosHoje' => $horariosAtual], ['horarios' => $horarios]);
+
+
+
+
+       return view('adicionar', ['horariosHoje' => $horariosHoje], ['todosHorarios' => $todosHorarios]);
 
     }
+
+
+
+
+
 
 
 

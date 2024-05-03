@@ -4,6 +4,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\HorarioController;
 use App\Http\Controllers\UserController;
+use App\Models\Horario;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,14 +28,16 @@ Route::get('/registro', function () {
 Route::post('/salvar', [AgendaController::class, 'store'])->middleware('auth');
 Route::get('/horario',[DataController::class, 'index'] )->middleware('auth');
 Route::get('/clientes', [UserController::class, 'index'])->middleware('auth');
-Route::get('/delete/{id}',[HorarioController::class, 'destroy'])->middleware('auth');
+Route::get('/delete/{id}',[HorarioController::class, 'delete'])->middleware('auth');
 Route::post('/resevar', [HorarioController::class, 'joinUser'])->middleware('auth');
 
 Route::get('/listar', function () {
     return view('listar');
 })->middleware('auth');;
 
-Route::get('/adicionar',[AgendaController::class, 'index'])->middleware('auth');;
+Route::get('/adicionar',[AgendaController::class, 'index'])->middleware('auth');
+
+
 
 Route::get('/login', function () {
     return view('login');
@@ -44,3 +47,5 @@ Route::post('/register', [UserController::class, 'register']);
 
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/logout',[UserController::class, 'logout']);
+
+

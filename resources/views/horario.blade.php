@@ -158,7 +158,7 @@
                                   {{ substr($item->hora, 0, 5); }}
                                 @endif|  </span>
                               @endforeach</td>
-                              <th><button  data-toggle="modal" data-target="#modal-horarios{{$data->id}}" class="btn btn-success">reservar</button></th>
+                              <th><button  data-toggle="modal" data-target="#modal-horarios{{$data->id}}" class="btn btn-success" onclick="removerTabela()">reservar</button></th>
 
                             </tr>
 
