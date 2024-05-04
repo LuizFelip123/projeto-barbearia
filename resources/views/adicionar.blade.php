@@ -270,6 +270,7 @@
                       <tr>
                         <td>{{$horario['hora']}}</td>
 
+
                         <td class="text-right py-0 align-middle">
                           <div class="btn-group btn-group-sm">
 

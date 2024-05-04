@@ -3,7 +3,7 @@
     <head>
       <title>login</title>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-        
+
         <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     </head>
@@ -15,10 +15,20 @@
               <div class="card-header ">
                 <div class="row justify-content-center">
                   <img src="assets/imgs/logo.jpg"  class= ""style="width: 10%; height: 10%; border-radius: 30px;"> </div>
-                
+
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
+              <!--exibr os erros-->
+              @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul style="list-style: none;">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
               <form class="form-horizontal"  method="POST" action="/login">
                 @csrf
                 <div class="card-body">
@@ -34,7 +44,7 @@
                       <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Senha">
                     </div>
                   </div>
-                 
+
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
@@ -47,13 +57,13 @@
             </div>
             <!-- /.card -->
             <span class="row justify-content-center">Não possui uma conta? <a href="/registro" class="ml-2">crie uma</a></span>
-        
+
       </div>
-    
-        
-        
-   
-      
+
+
+
+
+
     </body>
   </html>
 
