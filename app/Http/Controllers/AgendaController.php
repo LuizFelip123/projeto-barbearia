@@ -31,7 +31,7 @@ class AgendaController extends Controller
 
        $dia->refresh();
       $horario->data_id = $dia->id;
-      dd($horario);
+
       $horario->save();
         return redirect('adicionar');
     }
