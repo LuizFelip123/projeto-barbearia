@@ -10,9 +10,13 @@ class DataController extends Controller
     //
     public function index(){
         $dataAtual = Carbon::now();
-       
-        return view('horario', ['datas'=>  Data::whereDate('data', '>=', $dataAtual)
+
+
+            return view('horario', ['datas'=>  Data::whereDate('data', '>=', $dataAtual)
         ->get()]);
+
+
+
     }
- 
+
 }

@@ -20,11 +20,11 @@ class UserController extends Controller
       $users = [];
         if($data != null){
             foreach ($data->horarios as $horario) {
-        
+
                 if ($horario->user && $horario->user->hasRole('cliente')) {
                     $users[] = $horario->user;
                 }
-            } 
+            }
         }
         return view('clientes', ['clientes'=> User::role('cliente')->get(), 'clienteHoje'=>$users  ]);
     }
@@ -42,7 +42,7 @@ class UserController extends Controller
             'telefone'=> $request['telefone'],
             'password' => bcrypt($request['password']),
         ]);
-     
+
         $user->refresh();
         if($user->id ==1){
             Role::create(['name' => 'admin']);
@@ -51,9 +51,9 @@ class UserController extends Controller
         }
         $user->assignRole('cliente');
         $request->session()->regenerate();
-        
+
         Auth::login($user);
-        
+
 
        return redirect('/');
     }
@@ -66,17 +66,18 @@ class UserController extends Controller
         if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']]))
         {
             $user = User::where('email', $request->email)->first();
-        
+
             Auth::login($user);
             $request->session()->regenerate();
-        
+
             return redirect()->intended('/');
         }
-        return back()->withErrors(['email' => 'Credenciais inválidas']);
+        return back()->withErrors(['email' => 'Credenciais inválidas.
+        Verfique se os campos de email e senha foram preenchidos corretamente e tente novamente!']);
 
     }
     public function logout( Request $request){
-      
+
         Auth::logout();
 
         $request->session()->invalidate();

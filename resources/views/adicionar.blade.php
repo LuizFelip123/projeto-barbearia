@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
 
-  
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -41,8 +41,8 @@
       <li class="nav-item">
         <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
- 
- 
+
+
     </ul>
 
     <!-- Right navbar links -->
@@ -80,7 +80,7 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-     
+
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -105,7 +105,7 @@
                   <h3 class="card-title">Adicione um horário</h3>
                 </div>
                 <div class="card-body">
-               
+
                   <!-- Date range -->
                   <div class="form-group">
                     <label for="reservation">Data </label>
@@ -139,7 +139,7 @@
                   <!-- Date and time range -->
 
 
-                  
+
                 </div>
           </div>
           <div class="card card-info ml-2">
@@ -180,11 +180,11 @@
 
                    </label>
                 </div>
-                 
+
               </div>
               <!--./repitir dias da semana-->
 
-             
+
               <div class="form-group mt-2 ml-2 ">
                     <div class="input-group">
                       <button type="submit" class="btn btn-info">Adicionar hórario
@@ -192,18 +192,18 @@
                       </button>
                     </div>
                   </div>
-                
+
             </div>
 
 
-           
+
              </form>
           </div><!--./col-->
-          
+
 
             <!--col-->
             <div class="">
-              
+
             </div>
             <div class=" col-sm-6 mt-2 ">
                   <div class="card card-info ml-2 ml-sm-0 row">
@@ -218,37 +218,39 @@
                 </div>
                 <div class="card-body p-0">
                   <table class="table">
-                    
+
                     <tbody>
-                      @foreach ($horarios as $horario)
-                        
+                      @foreach ($horariosHoje as $horario)
+
                       <tr>
                         <td>{{ substr($horario->hora, 0, 5); }}</td>
-                        
+
                         <td class="text-right py-0 align-middle">
                           <div class="btn-group btn-group-sm">
-                            
+
                             <a href="/delete/{{$horario->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                           </div>
                         </td>
                       </tr>
-                          
+
                       @endforeach
-               
+
 
                     </tbody>
                   </table>
                 </div>
 
-                 
 
 
 
-              
+
+
             </div><!--./col-->
             <div class="card card-info ml-2 ml-sm-0 row ">
                   <div class="card-header">
                     <h3 class="card-title">Todos os horários</h3>
+
+
 
                     <div class="card-tools">
                       <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -258,43 +260,48 @@
                 </div>
                 <div class="card-body p-0">
                   <table class="table">
-                    
+
+
+
                     <tbody>
-                     
-                        
+
+                    @foreach ($todosHorarios as $horario)
+
                       <tr>
-                        <td></td>
-                        
+                        <td>{{$horario['hora']}}</td>
+
+
                         <td class="text-right py-0 align-middle">
                           <div class="btn-group btn-group-sm">
-                            
-                            <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+
+                          <a href="/delete/{{$horario->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                           </div>
                         </td>
                       </tr>
-                          
-                    
-               
+                    @endforeach
+
+
+
 
                     </tbody>
                   </table>
                 </div>
 
 
-           
-            
-          </div><!--./row-->
-            
-          
 
-            
+
+          </div><!--./row-->
+
+
+
+
             <!-- /.card-body -->
-          
+
           <!-- /.card -->
 
             <!-- Bootstrap Switch -->
 
-          
+
   </div>
   <!-- /.content-wrapper -->
 
@@ -332,9 +339,9 @@ setActiveClass();
             dateFormat: "H:i",
         });
 
-      
 
-      
+
+
 </script>
 
 

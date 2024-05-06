@@ -10,10 +10,14 @@ use Illuminate\Http\Request;
 class AgendaController extends Controller
 {
     //
-    
+
+
+
+
+
     public function store(Request $request){
         $dia = new Data;
-      
+
         $result =Data::where('data', $request['data'])->get();
         if($result->isEmpty()){
          $dia->data = $request['data'];
@@ -23,23 +27,41 @@ class AgendaController extends Controller
             $dia->save();
         }
         $horario = new Horario;
-        $horario->hora = $request['hora']; 
+        $horario->hora = $request['hora'];
 
-       $dia->refresh(); 
+       $dia->refresh();
       $horario->data_id = $dia->id;
+
       $horario->save();
         return redirect('adicionar');
     }
     public function index(){
+        //recupera todos os horarios
+       $todosHorarios = Horario::all();
+
        $dataAtual = Carbon::now();
+
+
        $data = Data::whereDate('data', $dataAtual->toDateString())->first();
-        if($data == null){
-            $horariosAtual =[];
+
+       if($data == null){
+            $horariosHoje =[];
         }else{
-            $horariosAtual = $data->horarios ;
+            $horariosHoje = $data->horarios ;
         }
-       return view('adicionar', ['horarios' => $horariosAtual]);
-          
+
+
+
+
+       return view('adicionar', ['horariosHoje' => $horariosHoje], ['todosHorarios' => $todosHorarios]);
+
     }
-    
+
+
+
+
+
+
+
+
 }
