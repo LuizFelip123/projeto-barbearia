@@ -36,8 +36,14 @@ class AgendaController extends Controller
         return redirect('adicionar');
     }
     public function index(){
-        //recupera todos os horarios
-       $todosHorarios = Horario::all();
+        //recupera todos os horarios e datas
+       $todosHorarios = Horario::select('horarios.*', 'datas.*')
+       ->join('datas', 'horarios.data_id', '=', 'datas.id')
+       ->orderBy('datas.data', 'desc')
+       ->get();
+
+
+
 
        $dataAtual = Carbon::now();
 
@@ -56,6 +62,15 @@ class AgendaController extends Controller
        return view('adicionar', ['horariosHoje' => $horariosHoje], ['todosHorarios' => $todosHorarios]);
 
     }
+
+    public function destroy($id){
+
+        Horario::findOrFail($id)->delete();
+        return redirect('adicionar' );
+    }
+
+
+
 
 
 

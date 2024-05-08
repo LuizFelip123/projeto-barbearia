@@ -12,7 +12,6 @@ class HorarioController extends Controller
     //
     public function delete($id){
 
-
         Horario::findOrFail($id)->delete();
         return redirect('adicionar' );
     }

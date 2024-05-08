@@ -228,8 +228,10 @@
                         <td class="text-right py-0 align-middle">
                           <div class="btn-group btn-group-sm">
 
-                            <a href="/delete/{{$horario->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                          </div>
+
+                          <a href="/delete/{{$horario->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+
+                        </div>
                         </td>
                       </tr>
 
@@ -268,13 +270,15 @@
                     @foreach ($todosHorarios as $horario)
 
                       <tr>
-                        <td>{{$horario['hora']}}</td>
+                        <td>{{ date ('d-m-Y', strtotime($horario['data']))}} | {{substr($horario['hora'], 0, 5) }} </td>
 
 
                         <td class="text-right py-0 align-middle">
                           <div class="btn-group btn-group-sm">
 
+
                           <a href="/delete/{{$horario->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+
                           </div>
                         </td>
                       </tr>
