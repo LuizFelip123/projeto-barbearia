@@ -15,37 +15,39 @@ class AgendaController extends Controller
 
 
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $dia = new Data;
 
-        $result =Data::where('data', $request['data'])->get();
-        if($result->isEmpty()){
-         $dia->data = $request['data'];
-         $dia->save();
-        }else{
+        $result = Data::where('data', $request['data'])->get();
+        if ($result->isEmpty()) {
+            $dia->data = $request['data'];
+            $dia->save();
+        } else {
             $dia = $result->first();
             $dia->save();
         }
         $horario = new Horario;
         $horario->hora = $request['hora'];
 
-       $dia->refresh();
-      $horario->data_id = $dia->id;
+        $dia->refresh();
+        $horario->data_id = $dia->id;
 
-      $horario->save();
+        $horario->save();
         return redirect('adicionar');
     }
-    public function index(){
+    public function index()
+    {
         //recupera todos os horarios e datas
-       $todosHorarios = Horario::select(
-        'horarios.*',
-        'horarios.id as horario_id',
-        'datas.id as data_id',
-        'datas.*'
+        $todosHorarios = Horario::select(
+            'horarios.*',
+            'horarios.id as horario_id',
+            'datas.id as data_id',
+            'datas.*'
         )
-       ->join('datas', 'horarios.data_id', '=', 'datas.id')
-       ->orderBy('datas.data', 'desc')
-       ->get();
+            ->join('datas', 'horarios.data_id', '=', 'datas.id')
+            ->orderBy('datas.data', 'desc')
+            ->get();
 
 
 
@@ -53,38 +55,27 @@ class AgendaController extends Controller
 
 
 
-       $dataAtual = Carbon::now();
+        $dataAtual = Carbon::now();
 
 
-       $data = Data::whereDate('data', $dataAtual->toDateString())->first();
+        $data = Data::whereDate('data', $dataAtual->toDateString())->first();
 
-       if($data == null){
-            $horariosHoje =[];
-        }else{
-            $horariosHoje = $data->horarios ;
+        if ($data == null) {
+            $horariosHoje = [];
+        } else {
+            $horariosHoje = $data->horarios;
         }
 
 
 
 
-       return view('adicionar', ['horariosHoje' => $horariosHoje], ['todosHorarios' => $todosHorarios]);
-
+        return view('adicionar', ['horariosHoje' => $horariosHoje], ['todosHorarios' => $todosHorarios]);
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
 
         Horario::findOrFail($id)->delete();
-        return redirect('adicionar' );
+        return redirect('adicionar');
     }
-
-
-
-
-
-
-
-
-
-
-
 }
