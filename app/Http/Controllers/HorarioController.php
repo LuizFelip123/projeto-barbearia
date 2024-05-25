@@ -13,7 +13,8 @@ class HorarioController extends Controller
     public function delete($id){
 
         Horario::findOrFail($id)->delete();
-        return redirect('adicionar' );
+        return redirect('adicionar')->with('success', 'Horário excluído com sucesso!');
+
     }
 
     public function joinUser(Request $request){

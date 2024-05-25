@@ -32,7 +32,26 @@
 <div class="wrapper">
 
   <!-- Preloader -->
+  @if (session('success'))
+    <div id="success-message" class="alert alert-success text-center text-white">
+        {{ session('success') }}
+    </div>
+  @endif
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var successMessage = document.getElementById('success-message');
+        if (successMessage) {
+            setTimeout(function() {
+                successMessage.style.transition = "opacity 1s";
+                successMessage.style.opacity = "0";
+                setTimeout(function() {
+                    successMessage.remove();
+                }, 1000); // Tempo adicional para garantir que o elemento seja removido após a transição
+            }, 3000); // 3000 milissegundos (3 segundos)
+        }
+    });
+</script>
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white sidebar-img">
@@ -300,9 +319,14 @@
                                   </div>
                                 </div>
                               </div>
+
+
                         </td>
                       </tr>
                     @endforeach
+
+
+
 
                     <!--modal -->
 
