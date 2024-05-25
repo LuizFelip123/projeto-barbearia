@@ -24,10 +24,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
-    <!--time picker-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -38,21 +35,42 @@
         <div id="success-message" class="alert alert-success text-center text-white">
             {{ session('success') }}
         </div>
+        @else
+        <div id="error-message" class="alert alert-danger text-center text-white">
+            {{ session('error') }}
+        </div>
         @endif
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var successMessage = document.getElementById('success-message');
-                if (successMessage) {
+        document.addEventListener('DOMContentLoaded', function() {
+            var successMessage = document.getElementById('success-message');
+            var errorMessage = document.getElementById("error-message")
+
+            if (errorMessage) {
+                setTimeout(function() {
+                    errorMessage.style.transition = "opacity 1s";
+                    errorMessage.style.opacity = "0";
                     setTimeout(function() {
-                        successMessage.style.transition = "opacity 1s";
-                        successMessage.style.opacity = "0";
-                        setTimeout(function() {
+                            errorMessage.remove();
+                        },
+                        1000
+                        ); // Tempo adicional para garantir que o elemento seja removido após a transição
+                }, 3000); // 3000 milissegundos (3 segundos)
+            }
+
+
+            if (successMessage) {
+                setTimeout(function() {
+                    successMessage.style.transition = "opacity 1s";
+                    successMessage.style.opacity = "0";
+                    setTimeout(function() {
                             successMessage.remove();
-                        }, 1000); // Tempo adicional para garantir que o elemento seja removido após a transição
-                    }, 3000); // 3000 milissegundos (3 segundos)
-                }
-            });
+                        },
+                        1000
+                        ); // Tempo adicional para garantir que o elemento seja removido após a transição
+                }, 3000); // 3000 milissegundos (3 segundos)
+            }
+        });
         </script>
 
         <!-- Navbar -->
@@ -60,7 +78,8 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
 
 
@@ -137,7 +156,8 @@
                                                 <i class="far fa-calendar-alt" for="reservation"></i>
                                             </span>
                                         </div>
-                                        <input type="date" name="data" class="form-control float-right" id="reservation">
+                                        <input type="date" name="data" class="form-control float-right" id="reservation"
+                                            min="{{ date ('Y-m-d')}}">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -149,9 +169,11 @@
 
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="far fa-clock" for="reservationtime"></i></span>
+                                            <span class="input-group-text"><i class="far fa-clock"
+                                                    for="reservationtime"></i></span>
                                         </div>
-                                        <input type="text" class="form-control float-right" name="hora" id="reservationtime">
+                                        <input type="time" class="form-control float-right" name="hora"
+                                            min="{{ date('Y-m-d\TH:i') }}">
                                     </div>
                                     <!-- /.input group -->
                                 </div>
@@ -219,7 +241,8 @@
 
 
                     </form>
-                </div><!--./col-->
+                </div>
+                <!--./col-->
 
 
                 <!--col-->
@@ -250,24 +273,32 @@
                                             <div class="btn-group btn-group-sm">
 
 
-                                                <a class="btn btn-danger" data-toggle="modal" data-target="#modal_exclui_horarios_hoje"></data><i class="fas fa-trash"></i></a>
+                                                <a class="btn btn-danger" data-toggle="modal"
+                                                    data-target="#modal_exclui_horarios_hoje"></data><i
+                                                        class="fas fa-trash"></i></a>
                                                 <!-- Button trigger modal -->
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="modal_exclui_horarios_hoje" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="modal_exclui_horarios_hoje" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
 
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <h5 class="text-danger text-bold text-center">Tem certeza que deseja excluir? Essa ação não pode ser desfeita</h5>
+                                                                <h5 class="text-danger text-bold text-center">Tem
+                                                                    certeza que deseja excluir? Essa ação não pode ser
+                                                                    desfeita</h5>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">cancelar</button>
-                                                                <a type="button" href="/delete/{{$horario->id}}" class="btn btn-danger">sim</a>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">cancelar</button>
+                                                                <a type="button" href="/delete/{{$horario->id}}"
+                                                                    class="btn btn-danger">sim</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -286,7 +317,8 @@
 
 
 
-                    </div><!--./col-->
+                    </div>
+                    <!--./col-->
                     <div class="card card-info ml-2 ml-sm-0 row ">
                         <div class="card-header">
                             <h3 class="card-title">Todos os horários</h3>
@@ -304,28 +336,37 @@
                                 <tbody>
                                     @foreach ($todosHorarios as $horario)
                                     <tr>
-                                        <td>{{ date ('d-m-Y', strtotime($horario['data']))}} | {{substr($horario['hora'], 0, 5) }} </td>
+                                        <td>{{ date ('d-m-Y', strtotime($horario['data']))}} |
+                                            {{substr($horario['hora'], 0, 5) }} </td>
                                         <td class="text-right py-0 align-middle">
                                             <div class="btn-group btn-group-sm">
 
-                                                <a class="btn btn-danger" data-toggle="modal" data-target="#modal_exclui_horarios"></data><i class="fas fa-trash"></i></a>
+                                                <a class="btn btn-danger" data-toggle="modal"
+                                                    data-target="#modal_exclui_horarios"></data><i
+                                                        class="fas fa-trash"></i></a>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="modal_exclui_horarios" tabindex="-1" aria-labelledby="modal_exlui_horarios" aria-hidden="true">
+                                                <div class="modal fade" id="modal_exclui_horarios" tabindex="-1"
+                                                    aria-labelledby="modal_exlui_horarios" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
 
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <h5 class="text-danger text-bold text-center">Tem certeza que deseja excluir? Essa ação não pode ser desfeita</h5>
+                                                                <h5 class="text-danger text-bold text-center">Tem
+                                                                    certeza que deseja excluir? Essa ação não pode ser
+                                                                    desfeita</h5>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">cancelar</button>
-                                                                <a type="button" href="/delete/{{$horario->horario_id}}" class="btn btn-danger">sim</a>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">cancelar</button>
+                                                                <a type="button" href="/delete/{{$horario->horario_id}}"
+                                                                    class="btn btn-danger">sim</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -343,7 +384,8 @@
 
 
 
-                    </div><!--./row-->
+                    </div>
+                    <!--./row-->
 
 
 
@@ -371,21 +413,15 @@
             </footer>
             <!--date picker-->
             <script>
-                function setActiveClass() {
-                    var homeElement = document.getElementById('addHorario');
-                    if (homeElement) {
-                        homeElement.classList.add("active");
-                    }
+            function setActiveClass() {
+                var homeElement = document.getElementById('addHorario');
+                if (homeElement) {
+                    homeElement.classList.add("active");
                 }
-                setActiveClass();
+            }
+            setActiveClass();
             </script>
-            <script type="text/javascript">
-                flatpickr("#reservationtime", {
-                    enableTime: true,
-                    noCalendar: true,
-                    dateFormat: "H:i",
-                });
-            </script>
+
 
 
 
@@ -396,7 +432,7 @@
             <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 
             <script>
-                $.widget.bridge('uibutton', $.ui.button)
+            $.widget.bridge('uibutton', $.ui.button)
             </script>
             <!-- Bootstrap 4 -->
             <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
