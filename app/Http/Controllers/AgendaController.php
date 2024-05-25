@@ -37,10 +37,18 @@ class AgendaController extends Controller
     }
     public function index(){
         //recupera todos os horarios e datas
-       $todosHorarios = Horario::select('horarios.*', 'datas.*')
+       $todosHorarios = Horario::select(
+        'horarios.*',
+        'horarios.id as horario_id',
+        'datas.id as data_id',
+        'datas.*'
+        )
        ->join('datas', 'horarios.data_id', '=', 'datas.id')
        ->orderBy('datas.data', 'desc')
        ->get();
+
+
+
 
 
 

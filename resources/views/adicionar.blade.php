@@ -277,14 +277,34 @@
                           <div class="btn-group btn-group-sm">
 
 
-                          <a href="/delete/{{$horario->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
 
-                          </div>
+                           <a class="btn btn-danger" data-toggle="modal" data-target="#modalExcluir"></data><i class="fas fa-trash"></i></a>
+                           <!-- Button trigger modal -->
+                            <!-- Modal -->
+                              <div class="modal fade" id="modalExcluir" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <h5 class="text-danger text-bold text-center">Tem certeza que deseja excluir? Essa ação não pode ser desfeita</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">cancelar</button>
+                                      <a type="button" href="/delete/{{$horario->horario_id}}" class="btn btn-danger">sim</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                         </td>
                       </tr>
                     @endforeach
 
-
+                    <!--modal -->
 
 
                     </tbody>
