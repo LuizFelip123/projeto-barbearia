@@ -18,26 +18,6 @@ class AgendaController extends Controller
     public function store(Request $request)
     {
 
-        //verificar se o horario é valido
-        $request->validate([
-            'data' => 'required|date|after_or_equal:today',
-            'hora' => 'required|date_format:H:i',
-        ]);
-
-        // Combinar data e hora em um único campo datetime
-        $dataHora = Carbon::parse($request->data . ' ' . $request->hora);
-
-        // Verifica se a data é hoje e se a hora é no passado
-        if ($dataHora->isToday() && $dataHora->lt(Carbon::now())) {
-            return redirect('adicionar')->with(['error' => 'Por favor, selecione um horário futuro.']);
-        }
-
-        // Processar e salvar o horário
-        // ...
-
-        return redirect('adicionar')->with('success', 'Horário adicionado com sucesso!');
-
-
         $dia = new Data;
 
         $result = Data::where('data', $request['data'])->get();
