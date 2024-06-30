@@ -35,10 +35,11 @@
         <div id="success-message" class="alert alert-success text-center text-white">
             {{ session('success') }}
         </div>
-        @else
+        @else @if (session('error'))
         <div id="error-message" class="alert alert-danger text-center text-white">
             {{ session('error') }}
         </div>
+        @endif
         @endif
 
         <script>
@@ -291,13 +292,13 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <h5 class="text-danger text-bold text-center">Tem
-                                                                    certeza que deseja excluir? Essa ação não pode ser
+                                                                    certeza que deseja excluir? Esta ação não poderá ser
                                                                     desfeita</h5>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-dismiss="modal">cancelar</button>
-                                                                <a type="button" href="/delete/{{$horario->id}}"
+                                                                <a type="button" href="/delete/{{$horario->id, $horario->data_id}}"
                                                                     class="btn btn-danger">sim</a>
                                                             </div>
                                                         </div>
@@ -359,7 +360,7 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <h5 class="text-danger text-bold text-center">Tem
-                                                                    certeza que deseja excluir? Essa ação não pode ser
+                                                                    certeza que deseja excluir? Esta ação não poderá ser
                                                                     desfeita</h5>
                                                             </div>
                                                             <div class="modal-footer">
