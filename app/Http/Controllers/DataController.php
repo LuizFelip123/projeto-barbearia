@@ -8,15 +8,12 @@ use Carbon\Carbon;
 class DataController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $dataAtual = Carbon::now();
 
 
-            return view('horario', ['datas'=>  Data::whereDate('data', '>=', $dataAtual)
-        ->get()]);
-
-
-
+        return view('horario', ['datas' =>  Data::whereDate('data', '>=', $dataAtual)
+            ->get()]);
     }
-
 }
