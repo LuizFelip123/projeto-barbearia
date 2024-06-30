@@ -9,11 +9,14 @@ class Data extends Model
 {
     protected $table ='datas';
     use HasFactory;
+    protected $fillable = [
+        'data'
+    ];
     public function agenda(){
 
         return $this->belongsTo('App\Models\Agenda');
     }
-    
+
     public function horarios(){
 
         return $this->hasMany('App\Models\Horario');

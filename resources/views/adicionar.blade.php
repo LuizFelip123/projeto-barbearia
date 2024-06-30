@@ -366,7 +366,7 @@
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-dismiss="modal">cancelar</button>
-                                                                <a type="button" href="/delete/{{$horario->horario_id}}"
+                                                                <a type="button" href="/delete/{{$horario->horario_id, $horario->data_id}}"
                                                                     class="btn btn-danger">sim</a>
                                                             </div>
                                                         </div>
