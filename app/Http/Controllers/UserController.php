@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Data;
-use App\Models\Horario;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use Carbon\Carbon;
@@ -14,11 +13,12 @@ use Spatie\Permission\Models\Role;
 class UserController extends Controller
 {
     //
-    public function index(){
-      $dataAtual = Carbon::now();
-      $data = Data::whereDate('data', $dataAtual->toDateString())->first();
-      $users = [];
-        if($data != null){
+    public function index()
+    {
+        $dataAtual = Carbon::now();
+        $data = Data::whereDate('data', $dataAtual->toDateString())->first();
+        $users = [];
+        if ($data != null) {
             foreach ($data->horarios as $horario) {
 
                 if ($horario->user && $horario->user->hasRole('cliente')) {
@@ -26,25 +26,26 @@ class UserController extends Controller
                 }
             }
         }
-        return view('clientes', ['clientes'=> User::role('cliente')->get(), 'clienteHoje'=>$users  ]);
+        return view('clientes', ['clientes' => User::role('cliente')->get(), 'clienteHoje' => $users]);
     }
-    public function register(Request $request){
+    public function register(Request $request)
+    {
         Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'telefone' => ['required', ],
-            'password' => ['required', 'string', 'min:8', ],
+            'telefone' => ['required',],
+            'password' => ['required', 'string', 'min:8',],
         ]);
 
         $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'telefone'=> $request['telefone'],
+            'telefone' => $request['telefone'],
             'password' => bcrypt($request['password']),
         ]);
 
         $user->refresh();
-        if($user->id ==1){
+        if ($user->id == 1) {
             Role::create(['name' => 'admin']);
             Role::create(['name' => 'cliente']);
             $user->assignRole('admin');
@@ -55,16 +56,16 @@ class UserController extends Controller
         Auth::login($user);
 
 
-       return redirect('/');
+        return redirect('/');
     }
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         Validator::make($request->all(), [
             'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8', ],
+            'password' => ['required', 'string', 'min:8',],
         ]);
 
-        if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']]))
-        {
+        if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']])) {
             $user = User::where('email', $request->email)->first();
 
             Auth::login($user);
@@ -74,9 +75,9 @@ class UserController extends Controller
         }
         return back()->withErrors(['email' => 'Credenciais inválidas.
         Verfique se os campos de email e senha foram preenchidos corretamente e tente novamente!']);
-
     }
-    public function logout( Request $request){
+    public function logout(Request $request)
+    {
 
         Auth::logout();
 
